@@ -4,7 +4,7 @@ type HeaderProp = {
 
 export default function Header({onMenuTap}: HeaderProp) {
     return (
-        <div className="flex items-center justify-between px-4 shadow-md  border-b-2">
+        <div className="flex items-center justify-between px-4 shadow-md py-2">
             {/* Left: Menu button */}
             <div className="px-3 py-1">
                 <img src='shopping_app_icon.svg' className="w-7 h-7 hover:scale-110 transform transition-transform duration-200" onClick={onMenuTap}/>
