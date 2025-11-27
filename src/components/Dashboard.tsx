@@ -1,9 +1,7 @@
 import { ProductRepository } from "../data/ProductRepository";
-import Carousel from "./Carousel";
-import CarouselProduct from "./CarouselProduct";
 import Footer from "./Footer";
 import Header from "./Header";
-import Product from "./ProductList/Product";
+import CarouselProduct from "./Carousel/CarouselProduct";
 import ProductList from "./ProductList/ProductList";
 import Sponsors from "./Sponsors";
 

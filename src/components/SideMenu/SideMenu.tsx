@@ -1,11 +1,16 @@
-import SideMenuItem from "./SideMenuItem"
+import SideMenuItem from "./SideMenuItem";
+import { SideMenuItemModel } from "./SideMenuItemModel";
 
 type SideMenuProp = {
     selectedItem: string,
     onMenuItemTap: (title:string) => void
 }
 
-const items: string[] = ['Dashboard', 'Users', 'Billing']
+const menuItems: SideMenuItemModel[] = [
+    new SideMenuItemModel('Dashboard', '/'),
+    new SideMenuItemModel('Users', '/users'),
+    new SideMenuItemModel('Billing', '/billing')
+]
 
 export default function SideMenu({selectedItem, onMenuItemTap } : SideMenuProp) {
     return (
@@ -21,12 +26,12 @@ export default function SideMenu({selectedItem, onMenuItemTap } : SideMenuProp) 
 
             {/* Side Menu Items */}   
             <div className="flex flex-col w-full grow space-y-2 overflow-y-auto">
-                {   items.map((item, index) => {
-                        const selected = item === selectedItem
+                {   menuItems.map((item: SideMenuItemModel, index: number) => {
+                        const selected = item.title === selectedItem
                         return (
                             <SideMenuItem 
-                                key={item} title={item} 
-                                onTap={ () => onMenuItemTap(item)} 
+                                key={item.title} sideMenuItemModel={item} 
+                                onTap={ () => onMenuItemTap(item.title)} 
                                 selected={selected}
                             />
                         )
