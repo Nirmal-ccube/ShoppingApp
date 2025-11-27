@@ -1,7 +1,10 @@
-import AllProducts from "./AllProducts";
+import { ProductRepository } from "../data/ProductRepository";
 import Carousel from "./Carousel";
+import CarouselProduct from "./CarouselProduct";
 import Footer from "./Footer";
 import Header from "./Header";
+import Product from "./ProductList/Product";
+import ProductList from "./ProductList/ProductList";
 import Sponsors from "./Sponsors";
 
 type DashboardProp = {
@@ -10,12 +13,14 @@ type DashboardProp = {
 
 export default function Dashboard({onMenuTap}: DashboardProp) {
     return (
-        <div className="flex flex-col h-full">
+        <div className="flex flex-col">
             <Header onMenuTap={onMenuTap}/>
 
-            <Carousel />
+            {/** <Carousel /> */}
 
-            <AllProducts />
+            <ProductList />
+
+            <CarouselProduct product={ProductRepository.getAllCarouselProducts()[0] } onItemTap={() => {}} />
 
             <Sponsors />
 
