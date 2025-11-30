@@ -1,9 +1,9 @@
 import { ProductRepository } from "../data/ProductRepository";
-import Footer from "./Footer";
+import Footer from "./Footer/Footer";
 import Header from "./Header";
 import CarouselProduct from "./Carousel/CarouselProduct";
 import ProductList from "./ProductList/ProductList";
-import Sponsors from "./Sponsors";
+import Sponsors from "./sponsors/Sponsors";
 
 type DashboardProp = {
     onMenuTap: () => void
@@ -12,7 +12,10 @@ type DashboardProp = {
 export default function Dashboard({onMenuTap}: DashboardProp) {
     return (
         <div className="flex flex-col">
-            <Header onMenuTap={onMenuTap}/>
+            <section id="header">
+                <Header onMenuTap={onMenuTap}/>
+            </section>
+            
 
             {/** <Carousel /> */}
 
