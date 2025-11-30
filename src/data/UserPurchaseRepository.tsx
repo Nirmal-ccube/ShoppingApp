@@ -1,6 +1,8 @@
+import { ProductModel } from "./ProductModel";
 import { UserPurchaseModel } from "./UserPurchaseModel";
+import { ProductRepository } from "./ProductRepository";
 
-export class PurchaseRepository {
+export class UserPurchaseRepository {
 
     static getDummyPurchases(): UserPurchaseModel[] {
         return [
@@ -35,7 +37,47 @@ export class PurchaseRepository {
             new UserPurchaseModel('29', '6', '10', 1764433029000),// Nov 29, 2025
             new UserPurchaseModel('30', '7', '8', 1764514256000)  // Nov 30, 2025
         ];
-}
+    }
+
+    static getUserPurchases(): UserPurchaseModel[] {
+        return this.getDummyPurchases()
+    }
+
+    static getTrendingPurchasedProducts(): {product: ProductModel; count: number}[] {
+        const trending = this.getTopTrendingPurchasedProductIdsWithCount(); 
+        const allProducts = ProductRepository.getAllProducts();
+
+        return trending
+        .map(tp => {
+            const product = allProducts.find(ap => ap.productId === tp.productId);
+
+            if (!product) return null; // skip missing productId
+
+            return {
+                product,
+                count: tp.count
+            };
+        })
+        .filter(x => x !== null) as { product: ProductModel; count: number }[];
+
+    }
+
+    static getTopTrendingPurchasedProductIdsWithCount(): { productId: string; count: number }[] {
+        const purchases = this.getUserPurchases();
+
+        const countMap: Record<string, number> = {};
+
+        for (const purchase of purchases) {
+            countMap[purchase.productId] = (countMap[purchase.productId] || 0) + 1;
+        }
+
+        const result = Object.entries(countMap).map(([productId, count]) => ({
+            productId,
+            count
+        }));
+         
+        return result.sort((a, b) => b.count - a.count).slice(0, 4);
+    }
 
 }
 
