@@ -19,7 +19,7 @@ export default function ProductList( {isTrendingProduct = false}: ProductListPro
 
 
     return (
-        <div className="flex w-full h-max py-2 bg-white items-center justify-baseline">
+        <div className="flex w-full h-max py-2 bg-white items-center justify-center">
             {
                 productList.map((product) => {
                     return <Product key={product.productId} productModel={product} isTrendingProduct={isTrendingProduct} onBuyTap={() => {}} />
