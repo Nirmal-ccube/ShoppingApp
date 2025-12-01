@@ -6,10 +6,13 @@ type ProductProps = {
     onBuyTap: () => void
 }
 
+const rootProductCSS = "flex flex-col bg-gray-100 m-2 mx-4 rounded-md space-y-2 items-center justify-center shadow"
+
 export default function Product({productModel, isTrendingProduct = false, onBuyTap}: ProductProps) {
+
     return (
-        <div className="flex flex-col bg-gray-100 m-2 mx-4 rounded-md h-70 w-50 space-y-2 items-center justify-center shadow">
-            <img src={productModel.imageUrl} className="w-30 h-30 object-contain" alt={productModel.name}/>
+        <div className={`${rootProductCSS} ${isTrendingProduct ? 'h-50 w-40' : 'h-70 w-50'}`}>
+            <img src={productModel.imageUrl} className={`${isTrendingProduct ? 'w-20 h-20' : 'w-30 h-30'} object-contain`} alt={productModel.name}/>
 
             <h2>{productModel.name}</h2>
 

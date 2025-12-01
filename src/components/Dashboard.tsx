@@ -19,7 +19,7 @@ export default function Dashboard({onMenuTap}: DashboardProp) {
 
             {/** <Carousel /> */}
 
-            <ProductList />
+            <ProductList isTrendingProduct={false}/>
 
             <CarouselProduct product={ProductRepository.getAllCarouselProducts()[0] } onItemTap={() => {}} />
 
