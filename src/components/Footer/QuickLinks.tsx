@@ -16,7 +16,7 @@ export default function QuickLinks() {
                 {
                 quickLinks.map( (linkItem, index) =>
                     (
-                        <NavLink to={linkItem.to} end={linkItem.to === "/"}> 
+                        <NavLink key={index} to={linkItem.to} end={linkItem.to === "/"}> 
                             <h2 className="underline">{linkItem.title}</h2>
                         </NavLink>
                     )
