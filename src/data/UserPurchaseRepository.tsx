@@ -1,6 +1,8 @@
 import { ProductModel } from "./ProductModel";
 import { UserPurchaseModel } from "./UserPurchaseModel";
 import { ProductRepository } from "./ProductRepository";
+import { InvoiceModel } from "./InvoiceModel";
+import { UserRepository } from "./UserRepository";
 
 export class UserPurchaseRepository {
 
@@ -79,6 +81,24 @@ export class UserPurchaseRepository {
         return result.sort((a, b) => b.count - a.count).slice(0, 4);
     }
 
+    static getInvoices(): InvoiceModel[] {
+        const userPurchases = this.getUserPurchases();
+
+        return userPurchases.map((item) => {
+
+            const userModel = UserRepository.getUserDetail(item.userId)
+            if (userModel === undefined) {
+                return null
+            }
+
+            const productModel = ProductRepository.getProductDetail(item.productId)
+            if (productModel === undefined) {
+                return null
+            }
+
+            return new InvoiceModel(item.invoiceId, item.purchaseTimestamp, productModel.productId, productModel.name, productModel.price, productModel.currency, userModel.userId, userModel.email)
+        }).filter((invoice): invoice is InvoiceModel => invoice !== null);
+    }
 }
 
 

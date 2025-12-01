@@ -3,7 +3,7 @@ import { UserModel } from "./UserModel";
 export class UserRepository {
 
     static getAllUsers(): UserModel[] {
-        return[]
+        return this.getDummyUsers()
     }
 
     static getDummyUsers(): UserModel[] {
@@ -31,4 +31,7 @@ export class UserRepository {
         ]
     }
 
+    static getUserDetail(userId: string): UserModel | undefined {
+        return this.getAllUsers().find( (item: UserModel) => userId === item.userId)
+    }
 }

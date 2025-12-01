@@ -87,5 +87,8 @@ export class ProductRepository {
     return this.getDummyProducts();
   }
 
+  static getProductDetail(productId: string): ProductModel | undefined {
+        return this.getAllProducts().find( (item: ProductModel) => productId === item.productId)
+    }
 
 }
