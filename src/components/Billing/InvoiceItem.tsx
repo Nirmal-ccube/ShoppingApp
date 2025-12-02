@@ -1,8 +1,8 @@
-import { InvoiceModel } from "../../data/InvoiceModel"
+import { InvoiceTableModel } from "../../data/InvoiceTableModel"
 import DateUtil from "../../Utils/DateUtil";
 
 type InvoiceItemProp = {
-    invoice: InvoiceModel;
+    invoice: InvoiceTableModel;
 }
 
 export default function InvoiceItem({invoice}: InvoiceItemProp) {
