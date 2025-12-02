@@ -1,10 +1,10 @@
-type InvoicePaginationProps = {
+type PaginationProps = {
     totalPages: number,
     currentPage: number,
     goToPage: (page: number) => void,
 }
 
-export default function InvoicePagination({totalPages, currentPage, goToPage}: InvoicePaginationProps) {
+export default function Pagination({totalPages, currentPage, goToPage}: PaginationProps) {
 
     function prevPage() {
         goToPage(currentPage - 1)
