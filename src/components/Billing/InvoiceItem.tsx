@@ -1,4 +1,5 @@
 import { InvoiceModel } from "../../data/InvoiceModel"
+import DateUtil from "../../Utils/DateUtil";
 
 type InvoiceItemProp = {
     invoice: InvoiceModel;
@@ -24,7 +25,7 @@ export default function InvoiceItem({invoice}: InvoiceItemProp) {
                 ${invoice.invoiceAmount.toFixed(2)}
             </td>
             <td className={`${defaultCSS} text-gray-500`}>
-                {invoice.purchaseTimestamp}
+                {DateUtil.getFormattedDate(invoice.purchaseTimestamp)}
             </td>
         </tr>
     ) 
