@@ -1,4 +1,4 @@
-export class InvoiceModel {
+export class InvoiceTableModel {
     invoiceId: string;
     purchaseTimestamp: number;
     productId: string;

@@ -1,5 +1,5 @@
 import { UserPurchaseRepository } from "../../data/UserPurchaseRepository";
-import { InvoiceModel } from "../../data/InvoiceModel";
+import { InvoiceTableModel } from "../../data/InvoiceTableModel";
 import { useState } from "react";
 import ItemList from "../Table/ItemList";
 import ItemHeader from "../Table/ItemHeader";
@@ -7,7 +7,7 @@ import Pagination from "../Table/Pagination";
 import InvoiceItem from "./InvoiceItem";
 
 export default function InvoiceList() {
-    const invoiceList: InvoiceModel[] = UserPurchaseRepository.getInvoices();
+    const invoiceList: InvoiceTableModel[] = UserPurchaseRepository.getInvoices();
     
         // Pagination state
         const [currentPage, setCurrentPage] = useState(1);

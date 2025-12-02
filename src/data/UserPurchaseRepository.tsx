@@ -1,7 +1,7 @@
 import { ProductModel } from "./ProductModel";
 import { UserPurchaseModel } from "./UserPurchaseModel";
 import { ProductRepository } from "./ProductRepository";
-import { InvoiceModel } from "./InvoiceModel";
+import { InvoiceTableModel } from "./InvoiceTableModel";
 import { UserRepository } from "./UserRepository";
 
 export class UserPurchaseRepository {
@@ -81,7 +81,7 @@ export class UserPurchaseRepository {
         return result.sort((a, b) => b.count - a.count).slice(0, 4);
     }
 
-    static getInvoices(): InvoiceModel[] {
+    static getInvoices(): InvoiceTableModel[] {
         const userPurchases = this.getUserPurchases();
 
         return userPurchases.map((item) => {
@@ -96,8 +96,8 @@ export class UserPurchaseRepository {
                 return null
             }
 
-            return new InvoiceModel(item.invoiceId, item.purchaseTimestamp, productModel.productId, productModel.name, productModel.price, productModel.currency, userModel.userId, userModel.email)
-        }).filter((invoice): invoice is InvoiceModel => invoice !== null);
+            return new InvoiceTableModel(item.invoiceId, item.purchaseTimestamp, productModel.productId, productModel.name, productModel.price, productModel.currency, userModel.userId, userModel.email)
+        }).filter((invoice): invoice is InvoiceTableModel => invoice !== null);
     }
 }
 
