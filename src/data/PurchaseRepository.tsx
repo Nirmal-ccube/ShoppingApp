@@ -3,6 +3,7 @@ import { InvoiceModel } from "./InvoiceModel";
 import { ProductRepository } from "./ProductRepository";
 import { InvoiceTableModel } from "./InvoiceTableModel";
 import { UserRepository } from "./UserRepository";
+import { UserTableModel } from "./UserTableModel";
 
 export class PurchaseRepository {
 
@@ -98,6 +99,24 @@ export class PurchaseRepository {
 
             return new InvoiceTableModel(item.invoiceId, item.purchaseTimestamp, productModel.productId, productModel.name, productModel.price, productModel.currency, userModel.userId, userModel.email)
         }).filter((invoice): invoice is InvoiceTableModel => invoice !== null);
+    }
+
+    static getUserTableData(): UserTableModel[] {
+        const allUsers = UserRepository.getAllUsers()
+
+        return allUsers.map((user) => {
+            const allUserPurchases = PurchaseRepository.getInvoices().filter((invoice): invoice is InvoiceModel => invoice.userId === user.userId);
+
+            const invoices = allUserPurchases.map((invoice) => {
+                const productModel = ProductRepository.getProductDetail(invoice.productId)
+                if (productModel === undefined) {
+                    return null
+                }
+                return { invoiceId: invoice.invoiceId, productName: productModel.name };
+            }).filter((invoice): invoice is {invoiceId: string, productName: string} => invoice !== null);
+
+            return new UserTableModel(user.userId, user.name, user.email, invoices)
+        })
     }
 }
 
