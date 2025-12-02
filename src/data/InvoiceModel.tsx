@@ -1,4 +1,4 @@
-export class UserPurchaseModel {
+export class InvoiceModel {
     invoiceId: string;
     userId: string;
     productId: string;

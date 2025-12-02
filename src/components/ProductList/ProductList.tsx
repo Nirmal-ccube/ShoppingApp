@@ -1,6 +1,6 @@
 import { ProductModel } from "../../data/ProductModel"
 import { ProductRepository } from "../../data/ProductRepository"
-import { UserPurchaseRepository } from "../../data/UserPurchaseRepository"
+import { PurchaseRepository } from "../../data/PurchaseRepository"
 import Product from "./Product"
 
 type ProductListProp = {
@@ -12,7 +12,7 @@ export default function ProductList( {isTrendingProduct = false}: ProductListPro
     let  productList: ProductModel[] = []
 
     if (isTrendingProduct) {
-        productList = UserPurchaseRepository.getTrendingPurchasedProducts().map ( (item) => item.product)
+        productList = PurchaseRepository.getTrendingPurchasedProducts().map ( (item) => item.product)
     } else {
         productList = ProductRepository.getAllProducts()
     }
