@@ -4,7 +4,7 @@ import SideMenu from "./SideMenu/SideMenu";
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(true);
-  const [selectedMenu, setSelectedMenu] = useState<string>('');
+  const [selectedMenu, setSelectedMenu] = useState<string>('Dashboard');
 
   function onMenuItemTap(title:string) {
     setSelectedMenu(title)
@@ -23,7 +23,7 @@ export default function Home() {
       </aside>
 
       {/* Main Content */}
-      <main className={`bg-white h-full transition-all duration-300 grow`}>
+      <main className={`flex-1 bg-white h-full transition-all duration-300  max-w-7xl mx-auto px-4`}>
         <Dashboard onMenuTap={() => onMenuIconTap()}/>
       </main>
     </div>
