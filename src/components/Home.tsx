@@ -23,7 +23,7 @@ export default function Home() {
       </aside>
 
       {/* Main Content */}
-      <main className={`flex-1 bg-white h-full transition-all duration-300  max-w-7xl mx-auto px-4`}>
+      <main className={`flex-1 bg-white h-full transition-all duration-300 w-100 mx-auto x-4`}>
         <Dashboard onMenuTap={() => onMenuIconTap()}/>
       </main>
     </div>

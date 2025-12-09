@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { ProductRepository } from "../../data/ProductRepository";
 import CarouselProduct from "./CarouselProduct";
 
-const carouselProducts = ProductRepository.getAllCarouselProducts()
+const carouselProducts = ProductRepository.getAllCarouselProducts();
 
 export default function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -13,32 +13,44 @@ export default function Carousel() {
 
   // Auto scroll every 3 seconds
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === carouselProducts.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 3000); // 3000ms = 3 seconds
+  if (!carouselProducts.length) return;
 
-    return () => clearInterval(interval); // clean up on unmount
-  }, []);
+  if (currentIndex >= carouselProducts.length) {
+    setCurrentIndex(0);
+    return;
+  }
 
-  useEffect(() => {
-    if (currentIndex >= carouselProducts.length) {
-      setCurrentIndex(0);
-    }
-  }, [carouselProducts.length, currentIndex]);
+  const interval = setInterval(() => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === carouselProducts.length - 1 ? 0 : prevIndex + 1
+    );
+  }, 3000);
+
+  return () => clearInterval(interval);
+}, [currentIndex, carouselProducts.length]);
+
+  if (!carouselProducts.length) {
+    return null;
+  }
 
   return (
-    <div className="flex">
-        <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
-            {   
-                carouselProducts.map( (product) => (
-                    <div key={product.productId} className="flex justify-center items-center">
-                        <CarouselProduct product={product} onItemTap={() => onProductTap(product.productId)}/>
-                    </div>
-                ))
-            }
-        </div>
+    <div className="w-full overflow-hidden">
+      <div
+        className="flex transition-transform duration-500 ease-out"
+        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+      >
+        {carouselProducts.map((product) => (
+          <div
+            key={product.productId}
+            className="w-full shrink-0 flex justify-center items-center"
+          >
+            <CarouselProduct
+              product={product}
+              onItemTap={() => onProductTap(product.productId)}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

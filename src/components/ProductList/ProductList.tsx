@@ -4,10 +4,11 @@ import { PurchaseRepository } from "../../data/PurchaseRepository"
 import Product from "./Product"
 
 type ProductListProp = {
-    isTrendingProduct: boolean
+    isTrendingProduct: boolean,
+    onBuyTap: ((productModel: ProductModel) => void) | null
 }
 
-export default function ProductList( {isTrendingProduct = false}: ProductListProp ) {
+export default function ProductList( {isTrendingProduct = false, onBuyTap}: ProductListProp ) {
 
     let  productList: ProductModel[] = []
 
@@ -26,7 +27,11 @@ export default function ProductList( {isTrendingProduct = false}: ProductListPro
                     key={product.productId}
                     productModel={product}
                     isTrendingProduct={isTrendingProduct}
-                    onBuyTap={() => {}}
+                    onBuyTap={() => {
+                        if (onBuyTap) {
+                            onBuyTap(product)
+                        }
+                    }}
                 />
                 ))}
             </div>
