@@ -7,8 +7,10 @@ export default function Home() {
   const [selectedMenu, setSelectedMenu] = useState<string>('Users');
 
   function onMenuItemTap(title:string) {
-    setSelectedMenu(title)
-    setMenuOpen(!menuOpen)
+    if (title !== selectedMenu) {
+      setSelectedMenu(title)
+      setMenuOpen(!menuOpen)
+    }
   }
 
   function onMenuIconTap() {

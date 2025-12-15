@@ -8,8 +8,10 @@ export default function Billing() {
   const [selectedMenu, setSelectedMenu] = useState<string>('Billing');
 
   function onMenuItemTap(title:string) {
-    setSelectedMenu(title)
-    setMenuOpen(!menuOpen)
+    if (title !== selectedMenu) {
+      setSelectedMenu(title)
+      setMenuOpen(!menuOpen)
+    }
   }
 
   function onMenuIconTap() {
