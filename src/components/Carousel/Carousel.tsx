@@ -1,19 +1,22 @@
 import { useState, useEffect } from "react";
 import { ProductRepository } from "../../data/ProductRepository";
 import CarouselProduct from "./CarouselProduct";
+import { ProductModel } from "../../data/ProductModel";
 
 const carouselProducts = ProductRepository.getAllCarouselProducts();
 
-export default function Carousel() {
+type CarouselProp = {
+    isCarouselRunning: boolean,
+    onBuyTap?: (productModel: ProductModel) => void
+}
+
+export default function Carousel({isCarouselRunning, onBuyTap}: CarouselProp) {
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  function onProductTap(productId: string) {
-
-  }
 
   // Auto scroll every 3 seconds
   useEffect(() => {
   if (!carouselProducts.length) return;
+  if (isCarouselRunning == false) return;
 
   if (currentIndex >= carouselProducts.length) {
     setCurrentIndex(0);
@@ -27,7 +30,7 @@ export default function Carousel() {
   }, 3000);
 
   return () => clearInterval(interval);
-}, [currentIndex, carouselProducts.length]);
+}, [currentIndex, carouselProducts.length, isCarouselRunning]);
 
   if (!carouselProducts.length) {
     return null;
@@ -46,7 +49,7 @@ export default function Carousel() {
           >
             <CarouselProduct
               product={product}
-              onItemTap={() => onProductTap(product.productId)}
+              onItemTap={ onBuyTap ? () =>  onBuyTap(product) : undefined }
             />
           </div>
         ))}

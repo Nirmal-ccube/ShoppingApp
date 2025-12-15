@@ -1,7 +1,6 @@
 import { ProductRepository } from "../data/ProductRepository";
 import Footer from "./Footer/Footer";
 import Header from "./Header";
-import CarouselProduct from "./Carousel/CarouselProduct";
 import Carousel from "./Carousel/Carousel";
 import ProductList from "./ProductList/ProductList";
 import Sponsors from "./sponsors/Sponsors";
@@ -59,7 +58,7 @@ export default function Dashboard({onMenuTap}: DashboardProp) {
                 <Header onMenuTap={onMenuTap}/>
             </section>
 
-            <Carousel />
+            <Carousel onBuyTap={(product) => showProductModal(product)} isCarouselRunning={selectedProduct == null} />
 
             <ProductList isTrendingProduct={false} onBuyTap={(product) => showProductModal(product)}/>
 

@@ -2,7 +2,7 @@ import { ProductModel } from "../../data/ProductModel"
 
 type CarouselProductProps = {
     product: ProductModel,
-    onItemTap: () => void
+    onItemTap?: () => void
 }
 
 export default function CarouselProduct({product, onItemTap}: CarouselProductProps) {
@@ -25,9 +25,6 @@ export default function CarouselProduct({product, onItemTap}: CarouselProductPro
                     <img src={product.imageUrl} className="max-w-full max-h-full object-contain" alt={product.name}/>
                 </div>
             </div>
-
-            
-
         </div>
     )
 }
