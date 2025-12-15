@@ -24,8 +24,8 @@ export default function Billing() {
       </aside>
 
       {/* Main Content */}
-      <main className={`flex-1 bg-white h-full transition-all duration-300  max-w-7xl mx-auto px-4`}>
-        <div className="flex flex-col items-center space-y-1 mt-4 ">
+      <main className={`flex-1 bg-white h-full transition-all duration-300  w-100 mx-auto px-4`}>
+        <div className="flex flex-col items-center space-y-1 mt-4 w-full">
 
             <h2 className="text-3xl font-bold text-gray-900">Billing</h2>
 
