@@ -6,6 +6,7 @@ import { useImperativeHandle, useRef, forwardRef } from "react"
 type BuyProductModalProps = {
   productModel: ProductModel;
   onBuyTap: () => void;
+  onCancelTap: () => void;
 };
 
 export interface BuyProductModalHandle {
@@ -15,7 +16,7 @@ export interface BuyProductModalHandle {
 
 
 const BuyProductModal = forwardRef<BuyProductModalHandle, BuyProductModalProps>(
-  ({ productModel, onBuyTap }, ref) => {
+  ({ productModel, onBuyTap, onCancelTap }, ref) => {
     const dialogRef = useRef<HTMLDialogElement>(null); 
 
     useImperativeHandle(ref, () => ({
@@ -39,7 +40,7 @@ const BuyProductModal = forwardRef<BuyProductModalHandle, BuyProductModalProps>(
 
     const handleClose = () => {
       dialogRef.current?.close();
-      onClose?.();  // Execute close action
+      onCancelTap?.();  // Execute close action
     };
 
     return createPortal(
@@ -73,7 +74,7 @@ const BuyProductModal = forwardRef<BuyProductModalHandle, BuyProductModalProps>(
           </div>
         </div>
       </dialog>,
-      document.getElementById("modal")
+      document.getElementById("modal")!
     );}
 );
 

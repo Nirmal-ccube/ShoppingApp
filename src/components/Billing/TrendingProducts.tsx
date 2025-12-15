@@ -9,7 +9,7 @@ export default function TrendingProducts() {
                     <h2 className="text-2xl font-bold text-gray-900">Trending Products</h2>
                 </div>
                 <div className="px-6 w-full">
-                    <ProductList isTrendingProduct={true}/>
+                    <ProductList isTrendingProduct={true} />
                 </div>
             </div>
         </div>

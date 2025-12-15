@@ -5,7 +5,7 @@ import Product from "./Product"
 
 type ProductListProp = {
     isTrendingProduct: boolean,
-    onBuyTap: ((productModel: ProductModel) => void) | null
+    onBuyTap?: (productModel: ProductModel) => void
 }
 
 export default function ProductList( {isTrendingProduct = false, onBuyTap}: ProductListProp ) {
@@ -27,11 +27,7 @@ export default function ProductList( {isTrendingProduct = false, onBuyTap}: Prod
                     key={product.productId}
                     productModel={product}
                     isTrendingProduct={isTrendingProduct}
-                    onBuyTap={() => {
-                        if (onBuyTap) {
-                            onBuyTap(product)
-                        }
-                    }}
+                    onBuyTap={ onBuyTap ? () =>  onBuyTap(product) : undefined }
                 />
                 ))}
             </div>

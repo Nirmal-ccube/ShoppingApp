@@ -3,7 +3,7 @@ import { ProductModel } from "../../data/ProductModel"
 type ProductProps = {
     productModel: ProductModel,
     isTrendingProduct: boolean,
-    onBuyTap: () => void
+    onBuyTap?: () => void
 }
 
 const rootProductCSS = "flex flex-col bg-gray-100 m-2 mx-4 rounded-md space-y-2 items-center justify-center shadow"

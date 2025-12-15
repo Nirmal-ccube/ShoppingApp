@@ -6,7 +6,7 @@ import Carousel from "./Carousel/Carousel";
 import ProductList from "./ProductList/ProductList";
 import Sponsors from "./sponsors/Sponsors";
 import { ProductModel } from "../data/ProductModel";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import BuyProductModal, { BuyProductModalHandle } from "./modal/BuyProductModal";
 
 
@@ -19,9 +19,14 @@ export default function Dashboard({onMenuTap}: DashboardProp) {
     const buyProductModalRef = useRef<BuyProductModalHandle>(null);
     const [selectedProduct, setSelectedProduct] = useState<ProductModel | null>(null);
 
+    useEffect(() => {
+        if (selectedProduct && buyProductModalRef.current) {
+            buyProductModalRef.current.open();
+        }
+    }, [selectedProduct]);
+
     function showProductModal(product: ProductModel) {
         setSelectedProduct(product);
-        buyProductModalRef.current?.open(); 
     }
 
     function handleBuyClick() {
@@ -33,6 +38,11 @@ export default function Dashboard({onMenuTap}: DashboardProp) {
         }
     }
 
+    function handleCancelBuyClick() {
+        buyProductModalRef.current?.close();
+        setSelectedProduct(null);
+    }
+
     return (
         <div className="flex flex-col">
 
@@ -41,6 +51,7 @@ export default function Dashboard({onMenuTap}: DashboardProp) {
                     ref={buyProductModalRef}
                     productModel={selectedProduct}
                     onBuyTap={handleBuyClick}
+                    onCancelTap={handleCancelBuyClick}
                 />
             )}
 
