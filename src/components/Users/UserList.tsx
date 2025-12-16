@@ -1,4 +1,4 @@
-import { PurchaseRepository } from "../../data/PurchaseRepository";
+import { UserRepository } from "../../data/UserRepository";
 import { useState } from "react";
 import ItemList from "../Table/ItemList";
 import ItemHeader from "../Table/ItemHeader";
@@ -7,7 +7,7 @@ import { UserTableModel } from "../../data/UserTableModel";
 import UserItem from "./UserItem";
 
 export default function UserList() {
-    const userDataList: UserTableModel[] = PurchaseRepository.getUserTableData();
+    const userDataList: UserTableModel[] = UserRepository.getUserTableData();
     
         // Pagination state
         const [currentPage, setCurrentPage] = useState(1);
