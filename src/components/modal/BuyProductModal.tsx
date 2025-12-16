@@ -7,7 +7,7 @@ import { TextField } from "@mui/material";
 
 type BuyProductModalProps = {
   productModel: ProductModel;
-  onBuyTap: () => void;
+  onBuyTap: (name: string, email:string) => void;
   onCancelTap: () => void;
 };
 
@@ -64,7 +64,7 @@ const BuyProductModal = forwardRef<BuyProductModalHandle, BuyProductModalProps>(
       if (!validate()) {
         return;
       }
-      onBuyTap();
+      onBuyTap(name.trim(), email.trim());
       dialogRef.current?.close();
     };
 

@@ -3,12 +3,18 @@ import { UserTableModel } from "./UserTableModel";
 import { ProductRepository } from "./ProductRepository";
 import { PurchaseRepository } from "./PurchaseRepository";
 import { InvoiceModel } from "./InvoiceModel";
+import { getFromStorage } from "../Utils/LocalStorageHelper"
+import { STORAGE_KEYS } from "../constants/StorageKeys";
 
 
 export class UserRepository {
 
     static getAllUsers(): UserModel[] {
-        return UserModel.getDummyUsers()
+        const users = getFromStorage<UserModel[]>(STORAGE_KEYS.USERS);
+        if (users && users.length > 0) {
+            return users;
+        }
+        return [];  
     }
 
     static getUserDetail(userId: string): UserModel | undefined {

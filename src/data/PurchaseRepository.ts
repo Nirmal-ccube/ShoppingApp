@@ -3,11 +3,17 @@ import { InvoiceModel } from "./InvoiceModel";
 import { ProductRepository } from "./ProductRepository";
 import { InvoiceTableModel } from "./InvoiceTableModel";
 import { UserRepository } from "./UserRepository";
+import { getFromStorage } from "../Utils/LocalStorageHelper"
+import { STORAGE_KEYS } from "../constants/StorageKeys";
 
 export class PurchaseRepository {
 
     static getInvoices(): InvoiceModel[] {
-        return InvoiceModel.getDummyInvoices()
+        const invoices = getFromStorage<InvoiceModel[]>(STORAGE_KEYS.INVOICES);
+        if (invoices && invoices.length > 0) {
+            return invoices;
+        }
+        return [];
     }
 
     static getTrendingPurchasedProducts(): {product: ProductModel; count: number}[] {

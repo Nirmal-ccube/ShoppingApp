@@ -28,9 +28,9 @@ export default function Dashboard({onMenuTap}: DashboardProp) {
         setSelectedProduct(product);
     }
 
-    function handleBuyClick() {
+    function handleBuyClick(name:string, email:string) {
         if (selectedProduct) {
-            console.log("Buying product:", selectedProduct.name);
+            console.log("Buying product: " + selectedProduct.name + " name:" + name + " email:" + email);
             //TODO: Add your purchase logic
             buyProductModalRef.current?.close(); 
             setSelectedProduct(null);
