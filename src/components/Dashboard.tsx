@@ -7,6 +7,7 @@ import Sponsors from "./sponsors/Sponsors";
 import { ProductModel } from "../data/ProductModel";
 import { useRef, useState, useEffect } from "react";
 import BuyProductModal, { BuyProductModalHandle } from "./modal/BuyProductModal";
+import { PurchaseRepository } from "../data/PurchaseRepository";
 
 
 type DashboardProp = {
@@ -31,7 +32,7 @@ export default function Dashboard({onMenuTap}: DashboardProp) {
     function handleBuyClick(name:string, email:string) {
         if (selectedProduct) {
             console.log("Buying product: " + selectedProduct.name + " name:" + name + " email:" + email);
-            //TODO: Add your purchase logic
+            PurchaseRepository.createNewInvoice(name, email, selectedProduct.productId, selectedProduct.price)
             buyProductModalRef.current?.close(); 
             setSelectedProduct(null);
         }

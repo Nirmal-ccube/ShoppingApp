@@ -55,7 +55,7 @@ export class PurchaseRepository {
     static getInvoiceTableData(): InvoiceTableModel[] {
         const userPurchases = this.getInvoices();
 
-        return userPurchases.map((item) => {
+        let invoiceList = userPurchases.map((item) => {
 
             const userModel = UserRepository.getUserDetail(item.userId)
             if (userModel === undefined) {
@@ -69,6 +69,39 @@ export class PurchaseRepository {
 
             return new InvoiceTableModel(item.invoiceId, item.purchaseTimestamp, productModel.productId, productModel.name, item.invoiceAmount, productModel.currency, userModel.userId, userModel.email)
         }).filter((invoice): invoice is InvoiceTableModel => invoice !== null);
+
+        return invoiceList.sort((a, b) => b.purchaseTimestamp - a.purchaseTimestamp);
+    }
+
+    static getNextInvoiceId(): string {
+        const invoiceList = this.getInvoices()
+        if (invoiceList.length === 0) {
+            return '1';
+        }
+        
+        const maxId = Math.max(
+            ...invoiceList.map(invoice => parseInt(invoice.invoiceId, 10))
+        );
+        
+        return String(maxId + 1);
+    }
+
+
+    static createNewInvoice(name:string, email:string, productId:string, productAmount: number) {
+        const invoiceId = this.getNextInvoiceId()
+
+        const userId = UserRepository.getUserDetailsOrSaveAndGetUser(name, email).userId
+        
+        const invoiceModel = new InvoiceModel(invoiceId, userId, productId, productAmount, Date.now())
+
+        const allInvoices = [ ...this.getInvoices(), invoiceModel]
+
+        this.saveAllInvoices(allInvoices);
+    }
+
+    static saveAllInvoices(invoices: InvoiceModel[]) {
+        localStorage.setItem(STORAGE_KEYS.INVOICES, JSON.stringify(invoices));
+        console.log("saveAllInvoices: " + JSON.stringify(invoices))
     }
 }
 
