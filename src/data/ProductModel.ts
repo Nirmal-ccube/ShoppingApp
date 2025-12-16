@@ -1,7 +1,19 @@
-import { ProductModel } from "../data/ProductModel";
+export class ProductModel {
+  productId: string;
+  name: string;
+  price: number;
+  currency: string;
+  imageUrl: string;
 
-export class ProductRepository {
-  // Return a fixed list of products for carousel
+  constructor(productId: string, name: string, price: number, currency: string, imageUrl: string) {
+    this.productId = productId;
+    this.name = name;
+    this.price = price;
+    this.currency = currency;
+    this.imageUrl = imageUrl;
+  }
+
+  // Return a fixed list of products
   static getDummyProducts(): ProductModel[] {
     const products: ProductModel[] = [
       new ProductModel(
@@ -78,17 +90,4 @@ export class ProductRepository {
 
     return products;
   }
-
-  static getAllCarouselProducts(): ProductModel[] {
-    return this.getDummyProducts().slice(0, 4);
-  }
-
-  static getAllProducts(): ProductModel[] {
-    return this.getDummyProducts();
-  }
-
-  static getProductDetail(productId: string): ProductModel | undefined {
-        return this.getAllProducts().find( (item: ProductModel) => productId === item.productId)
-    }
-
 }
