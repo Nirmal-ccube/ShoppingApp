@@ -1,4 +1,3 @@
-import { ProductRepository } from "../data/ProductRepository";
 import Footer from "./Footer/Footer";
 import Header from "./Header";
 import Carousel from "./Carousel/Carousel";
@@ -6,7 +5,7 @@ import ProductList from "./ProductList/ProductList";
 import Sponsors from "./sponsors/Sponsors";
 import { ProductModel } from "../data/ProductModel";
 import { useRef, useState, useEffect } from "react";
-import BuyProductModal, { BuyProductModalHandle } from "./modal/BuyProductModal";
+import BuyProductModal, { BuyProductModalHandle } from "./Modal/BuyProductModal";
 import { PurchaseRepository } from "../data/PurchaseRepository";
 
 
