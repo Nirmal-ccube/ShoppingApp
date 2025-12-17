@@ -20,8 +20,8 @@ export default function Sponsors() {
         <div className="flex flex-col h-80 bg-white items-center justify-center">
             <p className="text-2xl font-bold"> Sponsors</p>
 
-            <div className="w-full max-w-6xl mx-auto overflow-x-auto scrollbar-none">
-                <div className="flex whitespace-nowrap py-4">
+            <div className="w-full  mx-auto overflow-x-auto scrollbar-none">
+                <div className="flex whitespace-nowrap py-2">
                     {
                         sponsors.map((item, index) => {
                             return (<div key={index}  className="inline-block">
