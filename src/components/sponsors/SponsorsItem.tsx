@@ -6,9 +6,9 @@ type SponsorsItemProp = {
 
 export default function SponsorsItem({sponsor}: SponsorsItemProp) {
     return (
-            <div className="flex h-30 shrink-0 px-10">
+            <div className="sponsorsitem-root">
                 <img 
-                    className="h-full w-30 max-w-30 object-contain" 
+                    className="sponsorsitem-logo" 
                     src={sponsor.logoUrl} 
                     alt="Sponsors Logo" 
                 />

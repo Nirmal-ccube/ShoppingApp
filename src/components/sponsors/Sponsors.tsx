@@ -17,14 +17,14 @@ const sponsors = [
 
 export default function Sponsors() {
     return (
-        <div className="flex flex-col h-80 bg-white items-center justify-center">
-            <p className="text-2xl font-bold"> Sponsors</p>
+        <div className="sponsors-root">
+            <p className="sponsors-title"> Sponsors</p>
 
-            <div className="w-full  mx-auto overflow-x-auto scrollbar-none">
-                <div className="flex whitespace-nowrap py-2">
+            <div className="sponsors-list  scrollbar-hide">
+                <div className="sponsors-items">
                     {
                         sponsors.map((item, index) => {
-                            return (<div key={index}  className="inline-block">
+                            return (<div key={index}  className="sponsors-item-container">
                                 <SponsorsItem sponsor={item} />
                             </div>)
                         })

@@ -162,3 +162,37 @@
     @apply underline;
   }
 }
+
+/* Sponsors */
+@layer components {
+  .sponsors-root {
+    @apply flex flex-col h-80 bg-white items-center justify-center;
+  }
+
+  .sponsors-title {
+    @apply text-2xl font-bold;
+  }
+
+  .sponsors-list {
+    @apply w-full  mx-auto overflow-x-auto;
+  }
+
+  .sponsors-items {
+    @apply  whitespace-nowrap py-2;
+  }
+
+  .sponsors-item-container {
+    @apply inline-block;
+  }
+}
+
+/* SponsorsItem */
+@layer components {
+  .sponsorsitem-root {
+    @apply flex h-30 shrink-0 px-10;
+  }
+  
+  .sponsorsitem-logo {
+    @apply h-full w-30 max-w-30 object-contain;
+  }
+}
