@@ -2,7 +2,7 @@ import { PurchaseRepository } from "../../data/PurchaseRepository";
 import { InvoiceTableModel } from "../../data/InvoiceTableModel";
 import { useState } from "react";
 import ItemList from "../Table/ItemList";
-import ItemHeader from "../Table/ItemHeader";
+import TableItemHeader from "../Table/TableItemHeader";
 import Pagination from "../Table/Pagination";
 import InvoiceItem from "./InvoiceItem";
 
@@ -29,7 +29,7 @@ export default function InvoiceList() {
             <ItemList 
                 title="Invoices"
                 headers={
-                    <ItemHeader columnNames={['Invoice ID', 'Product Name', 'User Email', 'Invoice Amount', 'Purchase Date']}/>
+                    <TableItemHeader columnNames={['Invoice ID', 'Product Name', 'User Email', 'Invoice Amount', 'Purchase Date']}/>
                 }
                 children={
                     currentInvoices.map((invoice) => (

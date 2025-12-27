@@ -1,7 +1,7 @@
 import { UserRepository } from "../../data/UserRepository";
 import { useState } from "react";
 import ItemList from "../Table/ItemList";
-import ItemHeader from "../Table/ItemHeader";
+import TableItemHeader from "../Table/TableItemHeader";
 import Pagination from "../Table/Pagination";
 import { UserTableModel } from "../../data/UserTableModel";
 import UserItem from "./UserItem";
@@ -29,7 +29,7 @@ export default function UserList() {
             <ItemList 
                 title="Manage Users"
                 headers={
-                    <ItemHeader columnNames={['Name', 'Email', 'Items Purchased', '']}/>
+                    <TableItemHeader columnNames={['Name', 'Email', 'Items Purchased', '']}/>
                 }
                 children={
                     currentUserPurchases.map((userData) => (
