@@ -59,3 +59,46 @@
   }
 
 }
+
+/* Side Menu */
+@layer components {
+  .sidemenu-root {
+    @apply flex flex-col bg-white h-full rounded rounded-l-none p-4 space-y-4 shadow-md;
+  }
+
+  .sidemenu-header {
+    @apply flex space-x-4 items-center mb-4;
+  }
+
+  .sidemenu-logo {
+    @apply w-8 h-8;
+  }
+
+  .sidemenu-title {
+    @apply text-blue-800 font-bold text-lg whitespace-nowrap truncate;
+  }
+
+  .sidemenu-items {
+    @apply flex flex-col w-full grow space-y-2 overflow-y-auto;
+  }
+
+}
+
+/* Side Menu Item */
+@layer components {
+  .sidemenuitem-root {
+    @apply flex w-full cursor-pointer rounded;
+  }
+  
+  .sidemenuitem-selected {
+    @apply bg-blue-600 text-white;
+  }
+  
+  .sidemenuitem-normal {
+    @apply text-blue-800 hover:bg-blue-100 hover:text-blue-900;
+  }
+  
+  .sidemenuitem-text {
+    @apply w-full px-4 py-2;
+  }
+}
