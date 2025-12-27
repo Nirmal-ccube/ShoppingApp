@@ -6,25 +6,22 @@ type InvoiceItemProp = {
 }
 
 export default function InvoiceItem({invoice}: InvoiceItemProp) {
-
-    const defaultCSS = "px-6 py-4 whitespace-nowrap text-sm";
-
     return (
-        <tr key={invoice.invoiceId} className="hover:bg-gray-50 transition-colors">
+        <tr key={invoice.invoiceId} className="invoiceitem-row">
 
-            <td className={`${defaultCSS} font-medium text-gray-900`}>
+            <td className="invoiceitem-id">
                 {invoice.invoiceId}
             </td>
-            <td className={`${defaultCSS}  text-gray-900`}>
+            <td className="invoiceitem-name">
                 {invoice.name}
             </td>
-            <td className={`${defaultCSS}  text-gray-500`}>
+            <td className="invoiceitem-email">
                 {invoice.email}
             </td>
-            <td className={`${defaultCSS} font-semibold text-green-600`}>
+            <td className="invoiceitem-amount">
                 ${invoice.invoiceAmount.toFixed(2)}
             </td>
-            <td className={`${defaultCSS} text-gray-500`}>
+            <td className="invoiceitem-date">
                 {DateUtil.getFormattedDate(invoice.purchaseTimestamp)}
             </td>
         </tr>

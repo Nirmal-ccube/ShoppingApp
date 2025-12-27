@@ -19,17 +19,17 @@ export default function Billing() {
   }
 
   return (
-    <div className="flex h-screen w-screen">
+    <div className="billing-layout">
       {/* Side Menu */}
-      <aside className={`h-full transition-[width] duration-300 overflow-hidden  ${ menuOpen ? "w-64" : "w-0" }`}>
+      <aside className={`billing-sidemenu  ${ menuOpen ? "w-64" : "w-0" }`}>
         <SideMenu onMenuItemTap={onMenuItemTap} selectedItem={selectedMenu}/>
       </aside>
 
       {/* Main Content */}
-      <main className={`flex-1 bg-white h-full transition-all duration-300  w-100 mx-auto px-4`}>
+      <main className="billing-main">
         <div className="flex flex-col items-center space-y-1 mt-4 w-full">
 
-            <h2 className="text-3xl font-bold text-gray-900">Billing</h2>
+            <h2 className="billing-title">Billing</h2>
 
             <TrendingProducts />
 
