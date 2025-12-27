@@ -37,15 +37,15 @@ export default function Carousel({isCarouselRunning, onBuyTap}: CarouselProp) {
   }
 
   return (
-    <div className="w-full overflow-hidden">
+    <div className="carousel-wrapper">
       <div
-        className="flex transition-transform duration-500 ease-out"
+        className="carousel-track"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {carouselProducts.map((product) => (
           <div
             key={product.productId}
-            className="w-full shrink-0 flex justify-center items-center"
+            className="carousel-product"
           >
             <CarouselProduct
               product={product}
