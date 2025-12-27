@@ -10,14 +10,14 @@ const quickLinks: SideMenuItemModel[] = [
 
 export default function QuickLinks() {
     return (
-        <div className="flex flex-col space-y-4">
-            <h2 className="font-bold uppercase">Quick Links</h2>
+        <div className="quicklinks-root">
+            <h2 className="quicklinks-title">Quick Links</h2>
             <div>
                 {
                 quickLinks.map( (linkItem, index) =>
                     (
                         <NavLink key={index} to={linkItem.to} end={linkItem.to === "/"}> 
-                            <h2 className="underline">{linkItem.title}</h2>
+                            <h2 className="quicklinks-text">{linkItem.title}</h2>
                         </NavLink>
                     )
                 )

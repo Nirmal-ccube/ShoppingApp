@@ -102,3 +102,63 @@
     @apply w-full px-4 py-2;
   }
 }
+
+/* Footer */
+@layer components {
+  .footer-root {
+    @apply flex bg-indigo-300 justify-between p-10;
+  }
+
+  .footer-section-main {
+    @apply w-[50%] px-4;
+  }
+  
+  .footer-section-side {
+    @apply w-[25%];
+  }
+}
+
+/* Contact Info */
+@layer components {
+  .contactinfo-root {
+    @apply flex flex-col items-start space-y-4 text-left;
+  }
+
+  .contactinfo-title {
+    @apply font-bold uppercase;
+  }
+
+  .contactinfo-subtitle {
+    @apply text-cyan-600;
+  }
+}
+
+/* Page Section Links */
+@layer components {
+  .pagesectionlinks-root {
+    @apply flex flex-col space-y-4;
+  }
+
+  .pagesectionlinks-title {
+    @apply font-bold uppercase;
+  }
+
+  .pagesectionlinks-list {
+    @apply flex flex-col;
+  }
+}
+
+/* Quick Links */
+@layer components {
+  .quicklinks-root {
+    @apply flex flex-col space-y-4;
+  }
+
+  .quicklinks-title {
+    @apply font-bold uppercase;
+  }
+
+  .quicklinks-text {
+    @apply underline;
+  }
+}

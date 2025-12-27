@@ -4,14 +4,14 @@ import QuickLinks from "./QuickLinks";
 
 export default function Footer() {
     return (
-        <div className="flex bg-indigo-300 justify-between p-10">
-            <div className="w-[50%] px-4">
+        <div className="footer-root">
+            <div className="footer-section-main">
                 <ContactInfo />
             </div>
-            <div className="w-[25%]">
+            <div className="footer-section-side">
                 <QuickLinks />
             </div>
-            <div className="w-[25%]">
+            <div className="footer-section-side">
                 <PageSectionLinks />
             </div>
         </div>

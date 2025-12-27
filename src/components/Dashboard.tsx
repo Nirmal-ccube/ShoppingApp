@@ -58,7 +58,9 @@ export default function Dashboard({onMenuTap}: DashboardProp) {
                 <Header onMenuTap={onMenuTap}/>
             </section>
 
-            <Carousel onBuyTap={(product) => showProductModal(product)} isCarouselRunning={selectedProduct == null} />
+            <section id="caousel">
+                <Carousel onBuyTap={(product) => showProductModal(product)} isCarouselRunning={selectedProduct == null} />
+            </section>
 
             <ProductList isTrendingProduct={false} onBuyTap={(product) => showProductModal(product)}/>
 
