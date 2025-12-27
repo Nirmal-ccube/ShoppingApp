@@ -45,7 +45,7 @@ export default function Carousel({isCarouselRunning, onBuyTap}: CarouselProp) {
         {carouselProducts.map((product) => (
           <div
             key={product.productId}
-            className="carousel-product"
+            className="carousel-slide"
           >
             <CarouselProduct
               product={product}
