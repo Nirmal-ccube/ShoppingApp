@@ -103,6 +103,29 @@
   }
 }
 
+/* Header */
+@layer components {
+  .header-root {
+    @apply flex items-center justify-between px-4 shadow-md py-2;
+  }
+
+   .header-menu {
+      @apply px-3 py-1
+    }
+
+    .header-menu-icon {
+      @apply w-7 h-7 hover:scale-110 transform transition-transform duration-200;
+    }
+
+    .header-nav {
+      @apply space-x-6 text-blue-600 font-semibold;
+    }
+
+    .header-nav-link {
+      @apply hover:underline;
+    }
+}
+
 /* Footer */
 @layer components {
   .footer-root {
@@ -196,3 +219,4 @@
     @apply h-full w-30 max-w-30 object-contain;
   }
 }
+

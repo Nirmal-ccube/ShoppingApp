@@ -4,17 +4,21 @@ type HeaderProp = {
 
 export default function Header({onMenuTap}: HeaderProp) {
     return (
-        <div className="flex items-center justify-between px-4 shadow-md py-2">
+        <div className="header-root">
             {/* Left: Menu button */}
-            <div className="px-3 py-1">
-                <img src='shopping_app_icon.svg' className="w-7 h-7 hover:scale-110 transform transition-transform duration-200" onClick={onMenuTap}/>
+            <div className="header-menu">
+                <img 
+                    src='shopping_app_icon.svg' 
+                    className="header-menu-icon" 
+                    onClick={onMenuTap}
+                />
             </div>
 
             {/* Right: Navigation links */}
-            <nav className="space-x-6 text-blue-600 font-semibold">
-                <a href="#" className="hover:underline">Home</a>
-                <a href="#" className="hover:underline">Profile</a>
-                <a href="#" className="hover:underline">Settings</a>
+            <nav className="header-nav">
+                <a href="#" className="header-nav-link">Home</a>
+                <a href="#" className="header-nav-link">Profile</a>
+                <a href="#" className="header-nav-link">Settings</a>
             </nav>
 
         </div>
