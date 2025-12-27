@@ -20,8 +20,8 @@ export default function ProductList( {isTrendingProduct = false, onBuyTap}: Prod
 
 
     return (
-        <div className="w-full overflow-x-auto"> {/* Scrollable wrapper */}
-            <div className="flex w-max py-2 bg-white items-center justify-start gap-4"> {/* Inner flex container */}
+        <div className="productlist-wrapper scrollbar-hide"> {/* Scrollable wrapper */}
+            <div className="productlist-container"> {/* Inner flex container */}
                 {productList.map((product) => (
                 <Product
                     key={product.productId}

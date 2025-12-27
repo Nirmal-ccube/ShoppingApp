@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+/* Scrollbar hide styles */
+@layer utilities {
+  .scrollbar-hide {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+  }
+  .scrollbar-hide::-webkit-scrollbar { 
+    display: none; /* Chrome/Safari */
+  }
+}
 
 /* Product styles */
 @layer components {
@@ -20,5 +30,16 @@
   }
   .product-buy-btn {
     @apply bg-white text-sm text-blue-600 border border-blue-600 rounded px-2 py-1 hover:bg-blue-600 hover:text-white transition-colors duration-300 w-max;
+  }
+}
+
+/* Product list styles */
+@layer components {
+  .productlist-wrapper {
+    @apply w-full overflow-x-auto;
+  }
+
+  .productlist-container {
+    @apply flex w-max py-2 bg-white items-center justify-start gap-4;
   }
 }
