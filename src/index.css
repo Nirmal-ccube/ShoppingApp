@@ -376,3 +376,49 @@
     @apply flex-1 bg-white h-full transition-all duration-300 w-100 mx-auto px-4;
   }
 }
+
+/* Users Item */
+@layer components {
+  .useritem-row {
+    @apply hover:bg-gray-50 transition-colors;
+  }
+  
+  .useritem-name {
+    @apply px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900;
+  }
+  
+  .useritem-email {
+    @apply px-6 py-4 whitespace-nowrap text-sm text-gray-900;
+  }
+  
+  .useritem-invoices {
+    @apply px-6 py-4 whitespace-nowrap text-sm text-gray-500;
+  }
+  
+  .useritem-action {
+    @apply px-6 py-4 whitespace-nowrap text-sm font-semibold text-green-600 hover:text-green-700 cursor-pointer;
+  }
+}
+
+/* Users */
+@layer components {
+  .users-layout {
+    @apply flex h-screen w-screen;
+  }
+
+  .users-sidemenu {
+    @apply h-full transition-[width] duration-300 overflow-hidden;
+  }
+
+  .users-main {
+    @apply flex-1 bg-white h-full transition-all duration-300  max-w-7xl mx-auto x-4;
+  }
+
+  .users-content {
+    @apply flex flex-col items-center space-y-1 mt-12;
+  }
+
+  .users-title {
+    @apply text-3xl font-bold text-gray-900;
+  }
+}

@@ -6,8 +6,6 @@ type ProductProps = {
     onBuyTap?: () => void
 }
 
-const rootProductCSS = "flex flex-col bg-gray-100 m-2 mx-4 rounded-md space-y-2 items-center justify-center shadow"
-
 export default function Product({productModel, isTrendingProduct = false, onBuyTap}: ProductProps) {
 
     return (

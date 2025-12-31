@@ -9,18 +9,18 @@ export default function UserItem({userData}: UserItemProp) {
     const defaultCSS = "px-6 py-4 whitespace-nowrap text-sm";
 
     return (
-        <tr key={userData.userId} className="hover:bg-gray-50 transition-colors">
+        <tr key={userData.userId} className="useritem-row">
 
-            <td className={`${defaultCSS} font-medium text-gray-900`}>
+            <td className="useritem-name">
                 {userData.name}
             </td>
-            <td className={`${defaultCSS}  text-gray-900`}>
+            <td className="useritem-email">
                 {userData.email}
             </td>
-            <td className={`${defaultCSS}  text-gray-500`}>
+            <td className="useritem-invoices">
                 Purchased {userData.invoices.length} item
             </td>
-            <td className={`${defaultCSS} font-semibold text-green-600`}>
+            <td className="useritem-action">
                 Edit
             </td>
             
