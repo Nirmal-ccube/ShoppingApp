@@ -27,8 +27,7 @@ export default function Billing() {
 
       {/* Main Content */}
       <main className="billing-main">
-        <div className="flex flex-col items-center space-y-1 mt-4 w-full">
-
+        <div className="billing-content">
             <h2 className="billing-title">Billing</h2>
 
             <TrendingProducts />
