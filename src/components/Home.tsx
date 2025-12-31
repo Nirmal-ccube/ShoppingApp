@@ -16,14 +16,14 @@ export default function Home() {
   }
 
   return (
-    <div className="flex h-screen w-screen">
+    <div className="home-root">
       {/* Side Menu */}
-      <aside className={`h-full transition-[width] duration-300 overflow-hidden  ${ menuOpen ? "w-64" : "w-0" }`}>
+      <aside className={`home-sidemenu  ${ menuOpen ? "w-64" : "w-0" }`}>
         <SideMenu onMenuItemTap={onMenuItemTap} selectedItem={selectedMenu}/>
       </aside>
 
       {/* Main Content */}
-      <main className={`flex-1 bg-white h-full transition-all duration-300 w-100 mx-auto x-4`}>
+      <main className="home-main">
         <Dashboard onMenuTap={() => onMenuIconTap()}/>
       </main>
     </div>

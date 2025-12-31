@@ -361,3 +361,18 @@
     @apply px-6 w-full;
   }
 }
+
+/* Home */
+@layer components {
+  .home-root {
+    @apply flex h-screen w-screen;
+  }
+
+  .home-sidemenu {
+    @apply h-full transition-[width] duration-300 overflow-hidden;
+  }
+
+  .home-main {
+    @apply flex-1 bg-white h-full transition-all duration-300 w-100 mx-auto px-4;
+  }
+}
