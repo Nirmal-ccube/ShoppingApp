@@ -3,11 +3,13 @@ import { ProductModel } from "../../data/ProductModel"
 import { useImperativeHandle, useRef, forwardRef } from "react"
 import { useState } from "react";
 import { TextField } from "@mui/material";
+import BuySuccess from "./BuySuccess";
+import BuyFailed from "./BuyFailed";
 
 
 type BuyProductModalProps = {
   productModel: ProductModel;
-  onBuyTap: (name: string, email:string) => void;
+  onBuyTap: (name: string, email:string) => boolean;
   onCancelTap: () => void;
 };
 
@@ -24,6 +26,7 @@ const BuyProductModal = forwardRef<BuyProductModalHandle, BuyProductModalProps>(
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [errors, setErrors] = useState<{ name?: string; email?: string }>({});
+    const [isBuySuccess, setBuySuccess] = useState<boolean | null>(null);
 
     useImperativeHandle(ref, () => ({
       open() {
@@ -58,14 +61,13 @@ const BuyProductModal = forwardRef<BuyProductModalHandle, BuyProductModalProps>(
       return Object.keys(newErrors).length === 0;
     };
 
-    const handleBuySubmit = (e: React.FormEvent) => {
-      e.preventDefault();
+    const handleBuySubmit = () => {
 
       if (!validate()) {
         return;
       }
-      onBuyTap(name.trim(), email.trim());
-      dialogRef.current?.close();
+      const onBuySuccess = onBuyTap(name.trim(), email.trim());
+      setBuySuccess(onBuySuccess)
     };
 
     const handleClose = () => {
@@ -76,51 +78,62 @@ const BuyProductModal = forwardRef<BuyProductModalHandle, BuyProductModalProps>(
     return createPortal(
       <dialog
         ref={dialogRef}
-        className="p-0 border-none bg-transparent"
+        className="buymodal-dialog"
         onClose={handleClose}
       >
         {/* Fullscreen overlay */}
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+        <div className="buymodal-overlay" onClick={handleClose}>
           {/* Modal Box */}
-          <div className="bg-white p-6 rounded-lg shadow-lg w-96">
-            <h2 className="text-xl font-bold mb-4">Buy {productModel.name}</h2>
+          <div className="buymodal-box" onClick={(e) => e.stopPropagation()}>
+            
+            {
+              isBuySuccess == null && (
+                <>
+                  <h2 className="buymodal-title">Buy {productModel.name}</h2>
 
-            <form method="dialog" onSubmit={handleBuySubmit} className="flex flex-col gap-5">
+                  <form className="buymodal-form" onClick={(e) => e.stopPropagation()} onSubmit={(e) => e.preventDefault()}>
+                    <TextField
+                        label="Name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        error={Boolean(errors.name)}
+                        helperText={errors.name ?? ""}
+                      />
 
-              <TextField
-                  label="Name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  error={Boolean(errors.name)}
-                  helperText={errors.name ?? ""}
-                />
+                      <TextField
+                        label="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        error={Boolean(errors.email)}
+                        helperText={errors.email ?? ""}
+                      />
 
-                <TextField
-                  label="Email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  error={Boolean(errors.email)}
-                  helperText={errors.email ?? ""}
-                />
+                    <div className="buymodal-actions">
+                      <button
+                        type="button"
+                        onClick={handleBuySubmit}
+                        className="buymodal-buy-btn"
+                      >
+                        Buy Now
+                      </button>
 
-              <div className="flex justify-center gap-3">
-                <button
-                  type="submit"
-                  formMethod="dialog"
-                  className="bg-blue-600 text-white px-6 py-2 rounded-xl"
-                >
-                  Buy Now
-                </button>
+                      <button
+                        type="button"
+                        onClick={handleClose}
+                        className="buymodal-cancel-btn"
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </form>
+                </>
+               )
+            } 
+            
+            { isBuySuccess == true && <BuySuccess productModel={productModel} onOkTap={handleClose}/> }
+              
+            { isBuySuccess == false && <BuyFailed productModel={productModel} onOkTap={handleClose} /> }
 
-                <button
-                  type="button"
-                  onClick={handleClose}
-                  className="bg-gray-200 px-6 py-2 rounded-xl"
-                >
-                  Close
-                </button>
-              </div>
-            </form>
           </div>
         </div>
       </dialog>,

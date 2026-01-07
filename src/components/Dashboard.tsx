@@ -28,16 +28,18 @@ export default function Dashboard({onMenuTap}: DashboardProp) {
         setSelectedProduct(product);
     }
 
-    function handleBuyClick(name:string, email:string) {
+    function handleBuyClick(name:string, email:string): boolean {
         if (selectedProduct) {
             console.log("Buying product: " + selectedProduct.name + " name:" + name + " email:" + email);
             PurchaseRepository.createNewInvoice(name, email, selectedProduct.productId, selectedProduct.price)
-            buyProductModalRef.current?.close(); 
-            setSelectedProduct(null);
+            return true
+        } else {
+            return false
         }
     }
 
     function handleCancelBuyClick() {
+        console.log("handleCancelBuyClick");
         buyProductModalRef.current?.close();
         setSelectedProduct(null);
     }
