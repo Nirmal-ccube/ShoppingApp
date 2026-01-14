@@ -8,7 +8,7 @@ type BuyFailedProps = {
 export default function BuyFailed({productModel, onOkTap}: BuyFailedProps) {
     return (
         <div className="buyfailed-root">
-            <span className="buyfailed-icon"  style={{ fontSize: 60 }}>
+            <span className="material-icons-outlined  buyfailed-icon"  style={{ fontSize: 60 }}>
                 error_outline
             </span>
             

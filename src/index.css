@@ -431,7 +431,7 @@
   }
   
   .buysuccess-icon {
-    @apply material-icons-outlined text-green-500;
+    @apply text-green-500;
   }
   
   .buysuccess-title {
@@ -455,7 +455,7 @@
   }
   
   .buyfailed-icon {
-    @apply material-icons-outlined text-red-500;
+    @apply text-red-500;
   }
   
   .buyfailed-title {

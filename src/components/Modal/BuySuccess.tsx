@@ -8,7 +8,7 @@ type BuySuccessProps = {
 export default function BuySuccess({productModel, onOkTap}: BuySuccessProps) {
     return (
         <div className="buysuccess-root">
-            <span className="buysuccess-icon" style={{ fontSize: 80 }}>
+            <span className="material-icons-outlined buysuccess-icon" style={{ fontSize: 80 }}>
                 check_circle_outline
             </span>
             
