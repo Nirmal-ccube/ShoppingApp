@@ -45,7 +45,7 @@ export default function Dashboard({onMenuTap}: DashboardProp) {
     }
 
     return (
-        <div className="flex flex-col">
+        <div className="dashboard-root">
 
             { selectedProduct && (
                 <BuyProductModal

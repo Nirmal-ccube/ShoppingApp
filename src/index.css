@@ -11,6 +11,13 @@
   }
 }
 
+/* Dashboard */
+@layer components {
+  .dashboard-root {
+    @apply flex flex-col;
+  }
+}
+
 /* Product styles */
 @layer components {
   .product-root {
