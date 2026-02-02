@@ -60,6 +60,41 @@
 
 }
 
+/* Carousel Products styles */
+@layer components {
+  .carosuelproduct-root {
+    @apply flex items-center justify-center bg-white w-full;
+  }
+
+  .carouselproduct-card {
+    @apply flex items-center justify-center bg-gray-100 space-x-20 rounded-lg shadow-sm p-4 px-10;
+  }
+  
+  .carouselproduct-details {
+    @apply flex flex-col space-y-4 min-w-0;
+  }
+  
+  .carouselproduct-name {
+    @apply text-xl font-semibold truncate;
+  }
+  
+  .carouselproduct-price {
+    @apply text-lg font-medium text-gray-700;
+  }
+  
+  .carouselproduct-buy-btn {
+    @apply bg-white text-blue-600 border border-blue-600 rounded px-4 py-2 hover:bg-blue-600 hover:text-white transition-colors duration-300 w-max;      
+  }
+  
+  .carouselproduct-imagecontainer {
+    @apply shrink-0 w-70 h-70 bg-white rounded overflow-hidden shadow-sm flex items-center justify-center;
+  }
+
+  .carosuelproduct-image {
+    @apply max-w-full max-h-full object-contain;
+  }
+}
+
 /* Side Menu */
 @layer components {
   .sidemenu-root {
