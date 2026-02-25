@@ -63,7 +63,7 @@
 /* Carousel styles */
 @layer components {
   .carousel-wrapper {
-    @apply w-full overflow-hidden;
+    @apply w-full overflow-hidden border-b border-gray-200 pt-4 pb-4;
   }
 
   .carousel-track {
