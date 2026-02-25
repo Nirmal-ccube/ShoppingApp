@@ -426,7 +426,7 @@
   }
 
   .home-main {
-    @apply flex-1 bg-white h-full transition-all duration-300 w-100 mx-auto px-4;
+    @apply flex-1 bg-white h-full transition-all duration-300 w-100 mx-auto;
   }
 }
 
