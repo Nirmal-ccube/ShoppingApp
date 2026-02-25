@@ -2,30 +2,31 @@ import { forwardRef, useImperativeHandle, useState, useRef } from "react";
 import { createPortal } from "react-dom";
 import { TextField } from "@mui/material";
 import { UserTableModel } from "../../../data/UserTableModel";
+import EditUserSuccess from "./EditUserSuccess";
 
 
 type EditUserModalProps = {
-  userTableModel: UserTableModel;
-  onUpdateTap: (name: string) => boolean;
-  onCancelTap: () => void;
+    userTableModel: UserTableModel;
+    onUpdateTap: (name: string, id: string) => boolean;
+    onCancelTap: () => void;
 };
 
 export interface EditUserModalHandle {
-  open: () => void;
-  close: () => void;
+    open: () => void;
+    close: () => void;
 }
 
 const EditUserModal = forwardRef<EditUserModalHandle, EditUserModalProps>(
-    ({userTableModel, onUpdateTap, onCancelTap}, ref) => {
+    ({ userTableModel, onUpdateTap, onCancelTap }, ref) => {
 
-        const dialogRef = useRef<HTMLDialogElement>(null); 
+        const dialogRef = useRef<HTMLDialogElement>(null);
 
         const [name, setName] = useState(userTableModel.name);
 
-        const [errors, setErrors] = useState<{name?: string;}>({});
+        const [errors, setErrors] = useState<{ name?: string; }>({});
         const [isEditDone, setEditDone] = useState<boolean | null>(null);
 
-        useImperativeHandle(ref, ()=> ({
+        useImperativeHandle(ref, () => ({
             open() {
                 if (dialogRef.current) {
                     dialogRef.current.showModal();
@@ -39,7 +40,7 @@ const EditUserModal = forwardRef<EditUserModalHandle, EditUserModalProps>(
         }), [])
 
         const validate = () => {
-            const newErrors: {name?: string;} = {};
+            const newErrors: { name?: string; } = {};
 
             if (!name.trim()) {
                 newErrors.name = "Name is required";
@@ -54,7 +55,7 @@ const EditUserModal = forwardRef<EditUserModalHandle, EditUserModalProps>(
             if (!validate()) {
                 return;
             }
-            const onUpdateSuccess = onUpdateTap(name.trim());
+            const onUpdateSuccess = onUpdateTap(name.trim(), userTableModel.userId);
             setEditDone(onUpdateSuccess)
         };
 
@@ -64,68 +65,76 @@ const EditUserModal = forwardRef<EditUserModalHandle, EditUserModalProps>(
         };
 
         return createPortal(
-        <dialog ref={dialogRef}
-            className="buymodal-dialog"
-            onClose={handleClose}>
-            {/* Fullscreen overlay */}
-            <div className="buymodal-overlay" onClick={handleClose}>
-                {/* Modal Box */}
-                <div className="buymodal-box" onClick={(e) => e.stopPropagation()}>
-                    {
-                        isEditDone == null && (
-                            //show edit field
-                            <>
-                            
+            <dialog ref={dialogRef}
+                className="buymodal-dialog"
+                onClose={handleClose}>
+                {/* Fullscreen overlay */}
+                <div className="buymodal-overlay" onClick={handleClose}>
+                    {/* Modal Box */}
+                    <div className="buymodal-box" onClick={(e) => e.stopPropagation()}>
+                        {
+                            isEditDone == null && (
 
-                            <h2 className="buymodal-title">Edit data</h2>
+                                <>
 
-                            <form className="buymodal-form" onClick={(e) => e.stopPropagation()} onSubmit={(e) => e.preventDefault()}>
-                                <TextField
-                                    label="Name"
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
-                                    error={Boolean(errors.name)}
-                                    helperText={errors.name ?? ""}
-                                    />
+                                    <h2 className="buymodal-title">Edit User Details</h2>
 
-                                    <div className="buymodal-actions">
-                            <button
-                                type="button"
-                                onClick={handleUpdateSubmit}
-                                className="buymodal-buy-btn"
-                            >
-                                Buy Now
-                            </button>
+                                    <h3 className="text-xl font-semibold mb-2">Item Purchased</h3>
 
-                            <button
-                                type="button"
-                                onClick={handleClose}
-                                className="buymodal-cancel-btn"
-                            >
-                                Close
-                            </button>
-                            </div>
-                            </form>
+                                    <div className="flex flex-wrap gap-2 mt-2 mb-8">
+                                        {userTableModel.invoices.map((invoice, index) => (
+                                            <span className="px-3 py-1 text-sm bg-gray-100 rounded-full border">
+                                                {invoice.productName}
+                                            </span>
+                                        ))}
+                                    </div>
+
+                                    <form className="buymodal-form" onClick={(e) => e.stopPropagation()} onSubmit={(e) => e.preventDefault()}>
+                                        <TextField
+                                            label="Name"
+                                            value={name}
+                                            onChange={(e) => setName(e.target.value)}
+                                            error={Boolean(errors.name)}
+                                            helperText={errors.name ?? ""}
+                                        />
+
+                                        <div className="buymodal-actions">
+                                            <button
+                                                type="button"
+                                                onClick={handleUpdateSubmit}
+                                                className="buymodal-buy-btn"
+                                            >
+                                                Update
+                                            </button>
+
+                                            <button
+                                                type="button"
+                                                onClick={handleClose}
+                                                className="buymodal-cancel-btn"
+                                            >
+                                                Close
+                                            </button>
+                                        </div>
+                                    </form>
+                                </>
+                            )
+                        }
+
+                        {isEditDone == true && (
+                            <EditUserSuccess userTableModel={userTableModel} updatedName={name} onOkTap={handleClose} />
+                        )}
+
+                        {isEditDone == false && (
+                            //Edit failed
+                            <>Edit failed
                             </>
-                        )
-                    }
-
-                    { isEditDone == true && (
-                        //Edit success
-                        <>Edit success
-                        </>
-                    )}
-
-                    { isEditDone == false && (
-                        //Edit failed
-                        <>Edit failed
-                        </>
-                    )}
+                        )}
+                    </div>
                 </div>
-            </div>
-        </dialog>,
-      document.getElementById("modal")!
-    );}
+            </dialog>,
+            document.getElementById("modal")!
+        );
+    }
 );
 
 

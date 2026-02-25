@@ -9,16 +9,27 @@ import { STORAGE_KEYS } from "../constants/StorageKeys";
 
 export class UserRepository {
 
+    static updateUserName(name: string, id: string): boolean {
+        const users = this.getAllUsers();
+        const existing = users.find(u => u.userId === id);
+        if (existing) {
+            existing.name = name;
+            this.saveAllUsers(users);
+            return true;
+        }
+        return false;
+    }
+
     static getAllUsers(): UserModel[] {
         const users = getFromStorage<UserModel[]>(STORAGE_KEYS.USERS);
         if (users && users.length > 0) {
             return users;
         }
-        return [];  
+        return [];
     }
 
     static getUserDetail(userId: string): UserModel | undefined {
-        return this.getAllUsers().find( (item: UserModel) => userId === item.userId)
+        return this.getAllUsers().find((item: UserModel) => userId === item.userId)
     }
 
     static getUserTableData(): UserTableModel[] {
@@ -33,7 +44,7 @@ export class UserRepository {
                     return null
                 }
                 return { invoiceId: invoice.invoiceId, productName: productModel.name };
-            }).filter((invoice): invoice is {invoiceId: string, productName: string} => invoice !== null);
+            }).filter((invoice): invoice is { invoiceId: string, productName: string } => invoice !== null);
 
             return new UserTableModel(user.userId, user.name, user.email, invoices)
         })
@@ -45,7 +56,7 @@ export class UserRepository {
         return String(maxId + 1);
     }
 
-    static getUserDetailsOrSaveAndGetUser(name:string, email:string): UserModel {
+    static getUserDetailsOrSaveAndGetUser(name: string, email: string): UserModel {
         const users = this.getAllUsers();
 
         const existing = users.find(
