@@ -85,7 +85,7 @@
   }
 
   .carouselproduct-card {
-    @apply flex items-center justify-center bg-gray-100 space-x-20 rounded-lg shadow-sm p-4 px-10;
+    @apply flex items-center justify-center bg-gray-100 space-x-5 md:space-x-20 sm:space-x-10 rounded-lg shadow-sm p-4 px-4 md:px-15 sm:px-8;
   }
 
   .carouselproduct-details {
@@ -93,11 +93,11 @@
   }
 
   .carouselproduct-name {
-    @apply text-xl font-semibold truncate;
+    @apply text-base md:text-xl sm:text-lg font-semibold truncate;
   }
 
   .carouselproduct-price {
-    @apply text-lg font-medium text-gray-700;
+    @apply text-sm md:text-lg sm:text-base font-medium text-gray-700;
   }
 
   .carouselproduct-buy-btn {
@@ -105,7 +105,7 @@
   }
 
   .carouselproduct-imagecontainer {
-    @apply shrink-0 w-70 h-70 bg-white rounded overflow-hidden shadow-sm flex items-center justify-center;
+    @apply shrink-0 w-35 h-35 md:w-70 md:h-70 sm:w-50 sm:h-50 bg-white rounded overflow-hidden shadow-sm flex items-center justify-center;
   }
 
   .carosuelproduct-image {
