@@ -5,9 +5,9 @@ type UserItemProp = {
     onEdit: () => void;
 }
 
-export default function UserItem({userData, onEdit}: UserItemProp) {
+export default function UserItem({ userData, onEdit }: UserItemProp) {
 
-    const defaultCSS = "px-6 py-4 whitespace-nowrap text-sm";
+    const defaultCSS = "px-6 whitespace-nowrap text-sm";
 
     return (
         <tr key={userData.userId} className="useritem-row">
@@ -22,14 +22,14 @@ export default function UserItem({userData, onEdit}: UserItemProp) {
                 Purchased {userData.invoices.length} item
             </td>
             <td className="useritem-action">
-                 <button 
+                <button
                     onClick={() => onEdit()}
                     className={`${defaultCSS} font-semibold text-emerald-600 hover:text-emerald-700 cursor-pointer transition-colors`}
                 >
                     Edit
                 </button>
             </td>
-            
+
         </tr>
-    ) 
+    )
 }
