@@ -31,7 +31,7 @@ export const setupInitialData = (forceReset: boolean = false) => {
 };
 
 const clearAppData = () => {
-  [STORAGE_KEYS.PRODUCTS, STORAGE_KEYS.USERS, STORAGE_KEYS.INVOICES, STORAGE_KEYS.DATA_SETUP_DONE]
+  [STORAGE_KEYS.PRODUCTS, STORAGE_KEYS.USERS, STORAGE_KEYS.INVOICES, STORAGE_KEYS.DATA_SETUP_DONE, STORAGE_KEYS.SPONSORS]
     .forEach(key => localStorage.removeItem(key));
   console.log('🗑️ App data cleared');
 };
