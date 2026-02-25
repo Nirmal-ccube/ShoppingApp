@@ -1,5 +1,5 @@
 import { createPortal } from "react-dom"
-import { ProductModel } from "../../data/ProductModel"
+import { ProductModel } from "../../../data/ProductModel"
 import { useImperativeHandle, useRef, forwardRef } from "react"
 import { useState } from "react";
 import { TextField } from "@mui/material";

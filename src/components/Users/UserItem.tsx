@@ -2,9 +2,10 @@ import { UserTableModel } from "../../data/UserTableModel";
 
 type UserItemProp = {
     userData: UserTableModel;
+    onEdit: () => void;
 }
 
-export default function UserItem({userData}: UserItemProp) {
+export default function UserItem({userData, onEdit}: UserItemProp) {
 
     const defaultCSS = "px-6 py-4 whitespace-nowrap text-sm";
 
@@ -21,7 +22,12 @@ export default function UserItem({userData}: UserItemProp) {
                 Purchased {userData.invoices.length} item
             </td>
             <td className="useritem-action">
-                Edit
+                 <button 
+                    onClick={() => onEdit()}
+                    className={`${defaultCSS} font-semibold text-emerald-600 hover:text-emerald-700 cursor-pointer transition-colors`}
+                >
+                    Edit
+                </button>
             </td>
             
         </tr>

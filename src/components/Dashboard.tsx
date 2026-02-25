@@ -5,7 +5,7 @@ import ProductList from "./ProductList/ProductList";
 import Sponsors from "./sponsors/Sponsors";
 import { ProductModel } from "../data/ProductModel";
 import { useRef, useState, useEffect } from "react";
-import BuyProductModal, { BuyProductModalHandle } from "./Modal/BuyProductModal";
+import BuyProductModal, { BuyProductModalHandle } from "./Modal/BuyProduct/BuyProductModal";
 import { PurchaseRepository } from "../data/PurchaseRepository";
 
 

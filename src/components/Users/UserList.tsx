@@ -6,7 +6,11 @@ import Pagination from "../Table/Pagination";
 import { UserTableModel } from "../../data/UserTableModel";
 import UserItem from "./UserItem";
 
-export default function UserList() {
+type UserListProps = {
+    onEditTap: (userTableModel: UserTableModel) => void
+}
+
+export default function UserList({onEditTap}: UserListProps) {
     const userDataList: UserTableModel[] = UserRepository.getUserTableData();
     
         // Pagination state
@@ -33,7 +37,7 @@ export default function UserList() {
                 }
                 children={
                     currentUserPurchases.map((userData) => (
-                        <UserItem key={userData.userId}  userData={userData}/>
+                        <UserItem key={userData.userId}  userData={userData} onEdit={ () =>  onEditTap(userData)}/>
                     ))
                 }
                 pagination={
