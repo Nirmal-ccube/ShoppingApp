@@ -79,11 +79,11 @@ const EditUserModal = forwardRef<EditUserModalHandle, EditUserModalProps>(
 
                                     <h2 className="buymodal-title">Edit User Details</h2>
 
-                                    <h3 className="text-xl font-semibold mb-2">Item Purchased</h3>
+                                    <h3 className="buymodal-subtitle">Item Purchased</h3>
 
-                                    <div className="flex flex-wrap gap-2 mt-2 mb-8">
+                                    <div className="buymodal-item-purchased-list">
                                         {userTableModel.invoices.map((invoice, index) => (
-                                            <span className="px-3 py-1 text-sm bg-gray-100 rounded-full border">
+                                            <span className="buymodal-item-purchased-list-item">
                                                 {invoice.productName}
                                             </span>
                                         ))}
