@@ -240,11 +240,11 @@
 /* Sponsors */
 @layer components {
   .sponsors-root {
-    @apply flex flex-col h-80 bg-white items-center justify-center;
+    @apply flex flex-col bg-white items-center justify-center border-t border-gray-200 pt-4;
   }
 
   .sponsors-title {
-    @apply text-2xl font-bold;
+    @apply md:text-3xl text-2xl font-bold -mb-4;
   }
 
   .sponsors-list {
@@ -263,11 +263,11 @@
 /* SponsorsItem */
 @layer components {
   .sponsorsitem-root {
-    @apply flex h-30 shrink-0 px-10;
+    @apply flex h-30 shrink-0 md:px-10 sm:px-8 px-6;
   }
 
   .sponsorsitem-logo {
-    @apply h-full w-30 max-w-30 object-contain;
+    @apply h-full md:w-30 sm:w-25 w-20 md:max-w-30 sm:max-w-25 max-w-20 object-contain;
   }
 }
 
