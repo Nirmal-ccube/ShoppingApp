@@ -24,7 +24,7 @@ export default function Header({ onMenuTap, title }: HeaderProp) {
             )}
 
             {/* Right: Navigation links */}
-            <nav className="header-nav flex gap-4">
+            <nav className="header-nav">
                 <a href="/support" className="header-nav-link">Support</a>
                 <a href="/profile" className="header-nav-link">Profile</a>
                 {/* <a href="#" className="header-nav-link">Settings</a> */}

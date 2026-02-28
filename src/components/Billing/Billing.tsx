@@ -1,8 +1,8 @@
+import { useState } from "react";
 import TrendingProducts from "./TrendingProducts";
 import InvoiceList from "./InvoiceList";
 import SideMenu from "../SideMenu/SideMenu";
 import Header from "../Header";
-import { useState } from "react";
 
 export default function Billing() {
   const [menuOpen, setMenuOpen] = useState(true);
