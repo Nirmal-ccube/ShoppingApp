@@ -1,5 +1,6 @@
 import UserList from "./UserList";
 import SideMenu from "../SideMenu/SideMenu";
+import Header from "../Header";
 import { useState, useRef, useEffect } from "react";
 import EditUserModal, { EditUserModalHandle } from "../Modal/EditUser/EditUserModal";
 import { UserTableModel } from "../../data/UserTableModel";
@@ -26,10 +27,8 @@ export default function Home() {
   }
 
   function onMenuItemTap(title: string) {
-    if (title !== selectedMenu) {
-      setSelectedMenu(title)
-      setMenuOpen(!menuOpen)
-    }
+    setSelectedMenu(title)
+    setMenuOpen(!menuOpen)
   }
 
   function onMenuIconTap() {
@@ -73,9 +72,10 @@ export default function Home() {
 
         {/* Main Content */}
         <main className="users-main">
+          <section id="header">
+            <Header onMenuTap={onMenuIconTap} title="Manage Users" />
+          </section>
           <div className="users-content">
-
-            <h2 className="users-title">Manage Users</h2>
 
             <UserList onEditTap={(userData) => showEditUserModal(userData)} />
           </div>

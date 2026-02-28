@@ -1,18 +1,27 @@
 type HeaderProp = {
-    onMenuTap: () => void
+    onMenuTap: () => void,
+    title?: string
 }
 
-export default function Header({ onMenuTap }: HeaderProp) {
+export default function Header({ onMenuTap, title }: HeaderProp) {
     return (
         <div className="header-root">
             {/* Left: Menu button */}
             <div className="header-menu">
-                <img
-                    src='shopping_app_icon.svg'
-                    className="header-menu-icon"
+                <span
+                    className="material-icons-outlined text-3xl text-black cursor-pointer hover:bg-gray-100 p-1 rounded-full transition-colors"
                     onClick={onMenuTap}
-                />
+                >
+                    menu
+                </span>
             </div>
+
+            {/* Center: Optional Title */}
+            {title && (
+                <div className="flex-1 text-center font-bold text-xl text-blue-900">
+                    {title}
+                </div>
+            )}
 
             {/* Right: Navigation links */}
             <nav className="header-nav flex gap-4">
