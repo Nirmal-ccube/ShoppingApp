@@ -45,7 +45,7 @@
   }
 
   .product-buy-btn {
-    @apply bg-white md:text-sm md:px-2 md:py-1 sm:text-xs sm:px-1 sm:py-0.5 text-xs px-1 py-0.5 text-blue-600 border border-blue-600 rounded hover:bg-blue-600 hover:text-white transition-colors duration-300 w-max;
+    @apply bg-white md:text-sm md:px-2 md:py-1 sm:text-xs sm:px-1 sm:py-0.5 text-xs px-1 py-0.5 text-blue-600 border border-blue-600 rounded hover:bg-blue-600 hover:text-white transition-colors duration-300 w-max cursor-pointer;
   }
 }
 
@@ -99,7 +99,7 @@
   }
 
   .carouselproduct-buy-btn {
-    @apply bg-white text-blue-600 border border-blue-600 rounded px-4 py-2 hover:bg-blue-600 hover:text-white transition-colors duration-300 w-max;
+    @apply bg-white text-blue-600 border border-blue-600 rounded px-4 py-2 hover:bg-blue-600 hover:text-white transition-colors duration-300 w-max cursor-pointer;
   }
 
   .carouselproduct-imagecontainer {
@@ -165,7 +165,7 @@
   }
 
   .header-menu-icon {
-    @apply w-7 h-7 hover:scale-110 transform transition-transform duration-200;
+    @apply w-7 h-7 hover:scale-110 transform transition-transform duration-200 cursor-pointer;
   }
 
   .header-nav {
@@ -332,11 +332,11 @@
   }
 
   .pagination-btn-active {
-    @apply px-3 py-2 text-sm font-medium rounded-md transition-colors bg-blue-600 text-white shadow-sm disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white;
+    @apply px-3 py-2 text-sm font-medium rounded-md transition-colors bg-blue-600 text-white shadow-sm disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white cursor-pointer;
   }
 
   .pagination-btn-inactive {
-    @apply px-3 py-2 text-sm font-medium rounded-md transition-colors text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white;
+    @apply px-3 py-2 text-sm font-medium rounded-md transition-colors text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white cursor-pointer;
   }
 }
 
@@ -494,7 +494,7 @@
   }
 
   .buysuccess-ok-btn {
-    @apply bg-white text-green-600 border border-green-600 rounded px-4 mt-10 py-2 hover:bg-green-600 hover:text-white transition-colors duration-300 w-max min-w-20;
+    @apply bg-white text-green-600 border border-green-600 rounded px-4 mt-10 py-2 hover:bg-green-600 hover:text-white transition-colors duration-300 w-max min-w-20 cursor-pointer;
   }
 
   .buysuccess-timer {
@@ -522,7 +522,7 @@
   }
 
   .buyfailed-ok-btn {
-    @apply bg-white text-gray-600 border border-gray-600 rounded px-4 mt-10 py-2 hover:bg-gray-600 hover:text-white transition-colors duration-300 w-max min-w-20;
+    @apply bg-white text-gray-600 border border-gray-600 rounded px-4 mt-10 py-2 hover:bg-gray-600 hover:text-white transition-colors duration-300 w-max min-w-20 cursor-pointer;
   }
 }
 
@@ -570,10 +570,10 @@
   }
 
   .buymodal-buy-btn {
-    @apply bg-blue-600 text-white px-6 py-2 rounded-xl;
+    @apply bg-blue-600 text-white px-6 py-2 rounded-xl cursor-pointer;
   }
 
   .buymodal-cancel-btn {
-    @apply bg-gray-200 px-6 py-2 rounded-xl;
+    @apply bg-gray-200 px-6 py-2 rounded-xl cursor-pointer;
   }
 }
