@@ -3,34 +3,37 @@ import { ProductRepository } from "../../data/ProductRepository";
 import CarouselProduct from "./CarouselProduct";
 import { ProductModel } from "../../data/ProductModel";
 
-const carouselProducts = ProductRepository.getAllCarouselProducts();
-
 type CarouselProp = {
-    isCarouselRunning: boolean,
-    onBuyTap?: (productModel: ProductModel) => void
+  isCarouselRunning: boolean,
+  onBuyTap?: (productModel: ProductModel) => void
 }
 
-export default function Carousel({isCarouselRunning, onBuyTap}: CarouselProp) {
+export default function Carousel({ isCarouselRunning, onBuyTap }: CarouselProp) {
+  const [carouselProducts, setCarouselProducts] = useState<ProductModel[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    setCarouselProducts(ProductRepository.getAllCarouselProducts());
+  }, []);
 
   // Auto scroll every 3 seconds
   useEffect(() => {
-  if (!carouselProducts.length) return;
-  if (isCarouselRunning == false) return;
+    if (!carouselProducts.length) return;
+    if (isCarouselRunning == false) return;
 
-  if (currentIndex >= carouselProducts.length) {
-    setCurrentIndex(0);
-    return;
-  }
+    if (currentIndex >= carouselProducts.length) {
+      setCurrentIndex(0);
+      return;
+    }
 
-  const interval = setInterval(() => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === carouselProducts.length - 1 ? 0 : prevIndex + 1
-    );
-  }, 3000);
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === carouselProducts.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 3000);
 
-  return () => clearInterval(interval);
-}, [currentIndex, carouselProducts.length, isCarouselRunning]);
+    return () => clearInterval(interval);
+  }, [currentIndex, carouselProducts.length, isCarouselRunning]);
 
   if (!carouselProducts.length) {
     return null;
@@ -49,7 +52,7 @@ export default function Carousel({isCarouselRunning, onBuyTap}: CarouselProp) {
           >
             <CarouselProduct
               product={product}
-              onItemTap={ onBuyTap ? () =>  onBuyTap(product) : undefined }
+              onItemTap={onBuyTap ? () => onBuyTap(product) : undefined}
             />
           </div>
         ))}

@@ -2,13 +2,12 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './components/Home'
 import Billing from './components/Billing/Billing'
 import Users from './components/Users/Users'
-import { useEffect } from 'react'
 import { setupInitialData } from './Utils/LocalStorageHelper'
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home/>
+    element: <Home />
   },
   {
     path: "/billing",
@@ -20,11 +19,10 @@ const router = createBrowserRouter([
   }
 ])
 
-function App() {
-  useEffect(() => {
-    setupInitialData()
-  }, []);
+// Ensure initial data is in localStorage before any React components render
+setupInitialData()
 
+function App() {
   return (<RouterProvider router={router} />)
 }
 

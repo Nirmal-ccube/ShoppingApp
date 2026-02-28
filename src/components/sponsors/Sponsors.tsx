@@ -1,10 +1,16 @@
 import SponsorsItem from "./SponsorsItem"
 import { SponsorsRepository } from "../../data/SponsorsRepository"
+import { useState, useEffect } from "react"
+import { SponsorsModel } from "../../data/SponsorsModel"
 
 
 export default function Sponsors() {
 
-    const sponsors = SponsorsRepository.getAllSponsors();
+    const [sponsors, setSponsors] = useState<SponsorsModel[]>([]);
+
+    useEffect(() => {
+        setSponsors(SponsorsRepository.getAllSponsors());
+    }, []);
 
     return (
         <div className="sponsors-root">
