@@ -36,7 +36,7 @@ export default function Carousel({ isCarouselRunning, onBuyTap }: CarouselProp) 
   }, [currentIndex, carouselProducts.length, isCarouselRunning]);
 
   if (!carouselProducts.length) {
-    return null;
+    return <div className="empty-message mt-4">Carousel product not found</div>;
   }
 
   return (

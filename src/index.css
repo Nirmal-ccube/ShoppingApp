@@ -64,14 +64,18 @@
   }
 
   .productlist-container {
-    @apply flex w-max py-2 bg-white items-center justify-start md:gap-4 sm:gap-3 gap-2;
+    @apply flex w-max min-w-full py-2 bg-white items-center justify-start md:gap-4 sm:gap-3 gap-2;
+  }
+
+  .empty-message {
+    @apply flex items-center justify-center w-full py-8 px-4 text-center text-gray-500 font-medium md:text-base sm:text-sm text-sm bg-gray-50/50 rounded-lg border border-dashed border-gray-300;
   }
 }
 
 /* Carousel styles */
 @layer components {
   .carousel-wrapper {
-    @apply w-full overflow-hidden border-b border-gray-200 pt-4 pb-4;
+    @apply w-full overflow-hidden border-b border-gray-200 pt-4 pb-4 px-4 md:px-6;
   }
 
   .carousel-track {
@@ -257,7 +261,7 @@
 /* Sponsors */
 @layer components {
   .sponsors-root {
-    @apply flex flex-col bg-white items-center justify-center border-t border-gray-200 pt-4;
+    @apply flex flex-col items-center justify-center border-t border-gray-200 pt-4;
   }
 
   .sponsors-title {

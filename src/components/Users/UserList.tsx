@@ -36,9 +36,17 @@ export default function UserList({ onEditTap }: UserListProps) {
                 <TableItemHeader columnNames={['Name', 'Email', 'Items Purchased', '']} />
             }
             children={
-                currentUserPurchases.map((userData) => (
-                    <UserItem key={userData.userId} userData={userData} onEdit={() => onEditTap(userData)} />
-                ))
+                currentUserPurchases.length === 0 ? (
+                    <tr>
+                        <td colSpan={4} className="p-4">
+                            <div className="empty-message">No users found</div>
+                        </td>
+                    </tr>
+                ) : (
+                    currentUserPurchases.map((userData) => (
+                        <UserItem key={userData.userId} userData={userData} onEdit={() => onEditTap(userData)} />
+                    ))
+                )
             }
             pagination={
                 <Pagination totalPages={totalPages} currentPage={currentPage} goToPage={goToPage} />

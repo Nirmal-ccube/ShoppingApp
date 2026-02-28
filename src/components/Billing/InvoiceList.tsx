@@ -32,9 +32,17 @@ export default function InvoiceList() {
                 <TableItemHeader columnNames={['Invoice ID', 'Product Name', 'User Email', 'Invoice Amount', 'Purchase Date']} />
             }
             children={
-                currentInvoices.map((invoice) => (
-                    <InvoiceItem key={invoice.invoiceId} invoice={invoice} />
-                ))
+                currentInvoices.length === 0 ? (
+                    <tr>
+                        <td colSpan={5} className="p-4">
+                            <div className="empty-message">No invoices found</div>
+                        </td>
+                    </tr>
+                ) : (
+                    currentInvoices.map((invoice) => (
+                        <InvoiceItem key={invoice.invoiceId} invoice={invoice} />
+                    ))
+                )
             }
             pagination={
                 <Pagination totalPages={totalPages} currentPage={currentPage} goToPage={goToPage} />

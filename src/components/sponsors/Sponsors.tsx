@@ -14,16 +14,20 @@ export default function Sponsors() {
 
     return (
         <div className="sponsors-root">
-            <p className="sponsors-title"> Sponsors</p>
+            {sponsors.length > 0 && <p className="sponsors-title"> Sponsors</p>}
 
             <div className="sponsors-list  scrollbar-hide">
                 <div className="sponsors-items">
                     {
-                        sponsors.map((item, index) => {
-                            return (<div key={index} className="sponsors-item-container">
-                                <SponsorsItem sponsor={item} />
-                            </div>)
-                        })
+                        sponsors.length === 0 ? (
+                            <div className="empty-message">No sponsors available</div>
+                        ) : (
+                            sponsors.map((item, index) => {
+                                return (<div key={index} className="sponsors-item-container">
+                                    <SponsorsItem sponsor={item} />
+                                </div>)
+                            })
+                        )
                     }
                 </div>
             </div>

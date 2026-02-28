@@ -24,14 +24,20 @@ export default function ProductList({ isTrendingProduct = false, onBuyTap }: Pro
     return (
         <div className="productlist-wrapper scrollbar-hide"> {/* Scrollable wrapper */}
             <div className="productlist-container"> {/* Inner flex container */}
-                {productList.map((product) => (
-                    <Product
-                        key={product.productId}
-                        productModel={product}
-                        isTrendingProduct={isTrendingProduct}
-                        onBuyTap={onBuyTap ? () => onBuyTap(product) : undefined}
-                    />
-                ))}
+                {productList.length === 0 ? (
+                    <div className="empty-message m-4">
+                        Product list empty
+                    </div>
+                ) : (
+                    productList.map((product) => (
+                        <Product
+                            key={product.productId}
+                            productModel={product}
+                            isTrendingProduct={isTrendingProduct}
+                            onBuyTap={onBuyTap ? () => onBuyTap(product) : undefined}
+                        />
+                    ))
+                )}
             </div>
         </div>
     )
