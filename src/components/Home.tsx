@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <div className="home-root">
       {/* Side Menu */}
-      <aside className={`home-sidemenu  ${menuOpen ? "w-52" : "w-0"}`}>
+      <aside className={`home-sidemenu  ${menuOpen ? "md:w-52 sm:w-48 w-34" : "w-0"}`}>
         <SideMenu onMenuItemTap={onMenuItemTap} selectedItem={selectedMenu} />
       </aside>
 

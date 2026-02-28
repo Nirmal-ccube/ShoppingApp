@@ -9,7 +9,7 @@ export default function Header({ onMenuTap, title }: HeaderProp) {
             {/* Left: Menu button */}
             <div className="header-menu">
                 <span
-                    className="material-icons-outlined text-3xl text-black cursor-pointer hover:bg-gray-100 p-1 rounded-full transition-colors"
+                    className="material-icons-outlined header-menu-btn"
                     onClick={onMenuTap}
                 >
                     menu
@@ -18,7 +18,7 @@ export default function Header({ onMenuTap, title }: HeaderProp) {
 
             {/* Center: Optional Title */}
             {title && (
-                <div className="flex-1 text-center font-bold text-xl text-blue-900">
+                <div className="header-title">
                     {title}
                 </div>
             )}

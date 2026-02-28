@@ -20,7 +20,7 @@ export default function Billing() {
   return (
     <div className="billing-layout">
       {/* Side Menu */}
-      <aside className={`billing-sidemenu  ${menuOpen ? "w-52" : "w-0"}`}>
+      <aside className={`billing-sidemenu  ${menuOpen ? "md:w-52 sm:w-48 w-34" : "w-0"}`}>
         <SideMenu onMenuItemTap={onMenuItemTap} selectedItem={selectedMenu} />
       </aside>
 

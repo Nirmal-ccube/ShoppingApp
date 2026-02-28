@@ -7,8 +7,6 @@ type UserItemProp = {
 
 export default function UserItem({ userData, onEdit }: UserItemProp) {
 
-    const defaultCSS = "px-6 whitespace-nowrap text-sm";
-
     return (
         <tr key={userData.userId} className="useritem-row">
 
@@ -24,7 +22,7 @@ export default function UserItem({ userData, onEdit }: UserItemProp) {
             <td className="useritem-action">
                 <button
                     onClick={() => onEdit()}
-                    className={`${defaultCSS} font-semibold text-emerald-600 hover:text-emerald-700 cursor-pointer transition-colors`}
+                    className="useritem-action-btn"
                 >
                     Edit
                 </button>

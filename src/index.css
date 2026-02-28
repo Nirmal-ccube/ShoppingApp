@@ -47,6 +47,14 @@
   .product-buy-btn {
     @apply bg-white md:text-sm md:px-2 md:py-1 sm:text-xs sm:px-1 sm:py-0.5 text-xs px-1 py-0.5 text-blue-600 border border-blue-600 rounded hover:bg-blue-600 hover:text-white transition-colors duration-300 w-max cursor-pointer;
   }
+
+  .product-name {
+    @apply md:text-base md:px-2 md:py-1 sm:text-sm sm:px-1 sm:py-0.5 text-sm px-1 py-0.5;
+  }
+
+  .product-price {
+    @apply md:text-base md:px-2 md:py-1 sm:text-sm sm:px-1 sm:py-0.5 text-sm px-1 py-0.5;
+  }
 }
 
 /* Product list styles */
@@ -127,7 +135,7 @@
   }
 
   .sidemenu-title {
-    @apply text-blue-800 font-bold text-lg whitespace-nowrap truncate;
+    @apply text-blue-800 font-bold md:text-lg sm:text-base text-sm whitespace-normal break-words line-clamp-2 leading-tight;
   }
 
   .sidemenu-items {
@@ -151,18 +159,18 @@
   }
 
   .sidemenuitem-text {
-    @apply w-full px-4 py-2;
+    @apply w-full px-4 py-2 md:text-base sm:text-sm text-sm;
   }
 }
 
 /* Header */
 @layer components {
   .header-root {
-    @apply flex items-center justify-between px-4 shadow-md py-2;
+    @apply flex items-center justify-between md:px-4 sm:px-3 px-2 shadow-md py-2;
   }
 
   .header-menu {
-    @apply px-3 py-1
+    @apply md:px-3 sm:px-2 px-1 py-1
   }
 
   .header-menu-icon {
@@ -170,11 +178,19 @@
   }
 
   .header-nav {
-    @apply space-x-6 text-blue-600 font-semibold;
+    @apply flex md:gap-6 sm:gap-4 gap-3 text-blue-600 font-semibold md:text-base sm:text-sm text-xs items-center;
   }
 
   .header-nav-link {
     @apply hover:underline;
+  }
+
+  .header-menu-btn {
+    @apply text-3xl text-black cursor-pointer hover:bg-gray-100 p-1 rounded-full transition-colors;
+  }
+
+  .header-title {
+    @apply flex-1 text-center font-bold md:text-lg sm:text-base text-base text-blue-900;
   }
 }
 
@@ -449,6 +465,10 @@
 
   .useritem-action {
     @apply px-6 py-4 whitespace-nowrap text-sm font-semibold text-green-600 hover:text-green-700 cursor-pointer;
+  }
+
+  .useritem-action-btn {
+    @apply px-6 whitespace-nowrap text-sm font-semibold text-emerald-600 hover:text-emerald-700 cursor-pointer transition-colors;
   }
 }
 

@@ -66,7 +66,7 @@ export default function Home() {
       <div className="users-layout">
 
         {/* Side Menu */}
-        <aside className={`users-sidemenu  ${menuOpen ? "w-52" : "w-0"}`}>
+        <aside className={`users-sidemenu  ${menuOpen ? "md:w-52 sm:w-48 w-34" : "w-0"}`}>
           <SideMenu onMenuItemTap={onMenuItemTap} selectedItem={selectedMenu} />
         </aside>
 
