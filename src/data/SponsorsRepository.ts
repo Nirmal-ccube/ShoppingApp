@@ -1,4 +1,4 @@
-import { getFromStorage } from "../Utils/LocalStorageHelper"
+import { getFromStorage } from "../Utils/LocalStorageHelper";
 import { STORAGE_KEYS } from "../constants/StorageKeys";
 import { SponsorsModel } from "./SponsorsModel";
 

@@ -1,8 +1,8 @@
-import { ProductModel } from "../../data/ProductModel"
-import { ProductRepository } from "../../data/ProductRepository"
-import { PurchaseRepository } from "../../data/PurchaseRepository"
-import Product from "./Product"
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
+import { ProductModel } from "../../data/ProductModel";
+import { ProductRepository } from "../../data/ProductRepository";
+import { PurchaseRepository } from "../../data/PurchaseRepository";
+import Product from "./Product";
 
 type ProductListProp = {
     isTrendingProduct: boolean,

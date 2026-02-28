@@ -1,11 +1,11 @@
-import { ProductModel } from "../../data/ProductModel"
+import { ProductModel } from "../../data/ProductModel";
 
 type CarouselProductProps = {
     product: ProductModel,
     onItemTap?: () => void
 }
 
-export default function CarouselProduct({product, onItemTap}: CarouselProductProps) {
+export default function CarouselProduct({ product, onItemTap }: CarouselProductProps) {
     return (
         <div className="carosuelproduct-root">
 
@@ -22,7 +22,7 @@ export default function CarouselProduct({product, onItemTap}: CarouselProductPro
 
                 {/* Product image */}
                 <div className="carouselproduct-imagecontainer">
-                    <img src={product.imageUrl} className="carosuelproduct-image" alt={product.name}/>
+                    <img src={product.imageUrl} className="carosuelproduct-image" alt={product.name} />
                 </div>
             </div>
         </div>

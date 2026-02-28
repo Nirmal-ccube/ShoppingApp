@@ -1,6 +1,5 @@
-
-import { UserTableModel } from "../../../data/UserTableModel";
 import { useEffect, useState } from "react";
+import { UserTableModel } from "../../../data/UserTableModel";
 
 type EditUserSuccessProps = {
     userTableModel: UserTableModel;

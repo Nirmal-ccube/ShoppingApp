@@ -1,8 +1,8 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App'
-import { createTheme, ThemeProvider, CssBaseline } from '@mui/material'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import './index.css';
+import App from './App';
+import { createTheme, ThemeProvider, CssBaseline } from '@mui/material';
 
 const theme = createTheme()
 

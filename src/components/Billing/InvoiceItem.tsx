@@ -1,11 +1,11 @@
-import { InvoiceTableModel } from "../../data/InvoiceTableModel"
+import { InvoiceTableModel } from "../../data/InvoiceTableModel";
 import DateUtil from "../../Utils/DateUtil";
 
 type InvoiceItemProp = {
     invoice: InvoiceTableModel;
 }
 
-export default function InvoiceItem({invoice}: InvoiceItemProp) {
+export default function InvoiceItem({ invoice }: InvoiceItemProp) {
     return (
         <tr key={invoice.invoiceId} className="invoiceitem-row">
 
@@ -25,5 +25,5 @@ export default function InvoiceItem({invoice}: InvoiceItemProp) {
                 {DateUtil.getFormattedDate(invoice.purchaseTimestamp)}
             </td>
         </tr>
-    ) 
+    )
 }

@@ -1,4 +1,4 @@
-import SimpleHeader from "../SimpleHeader"
+import SimpleHeader from "../SimpleHeader";
 
 export default function Profile() {
 

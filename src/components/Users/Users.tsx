@@ -1,7 +1,7 @@
+import { useState, useRef, useEffect } from "react";
 import UserList from "./UserList";
 import SideMenu from "../SideMenu/SideMenu";
 import Header from "../Header";
-import { useState, useRef, useEffect } from "react";
 import EditUserModal, { EditUserModalHandle } from "../Modal/EditUser/EditUserModal";
 import { UserTableModel } from "../../data/UserTableModel";
 import { UserRepository } from "../../data/UserRepository";

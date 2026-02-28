@@ -1,9 +1,9 @@
-import { UserRepository } from "../../data/UserRepository";
 import { useState } from "react";
+import { UserRepository } from "../../data/UserRepository";
+import { UserTableModel } from "../../data/UserTableModel";
 import ItemList from "../Table/ItemList";
 import TableItemHeader from "../Table/TableItemHeader";
 import Pagination from "../Table/Pagination";
-import { UserTableModel } from "../../data/UserTableModel";
 import UserItem from "./UserItem";
 
 type UserListProps = {

@@ -1,10 +1,10 @@
+import { useRef, useState, useEffect } from "react";
 import Footer from "./Footer/Footer";
 import Header from "./Header";
 import Carousel from "./Carousel/Carousel";
 import ProductList from "./ProductList/ProductList";
 import Sponsors from "./sponsors/Sponsors";
 import { ProductModel } from "../data/ProductModel";
-import { useRef, useState, useEffect } from "react";
 import BuyProductModal, { BuyProductModalHandle } from "./Modal/BuyProduct/BuyProductModal";
 import { PurchaseRepository } from "../data/PurchaseRepository";
 
@@ -13,7 +13,7 @@ type DashboardProp = {
     onMenuTap: () => void
 }
 
-export default function Dashboard({onMenuTap}: DashboardProp) {
+export default function Dashboard({ onMenuTap }: DashboardProp) {
 
     const buyProductModalRef = useRef<BuyProductModalHandle>(null);
     const [selectedProduct, setSelectedProduct] = useState<ProductModel | null>(null);
@@ -28,7 +28,7 @@ export default function Dashboard({onMenuTap}: DashboardProp) {
         setSelectedProduct(product);
     }
 
-    function handleBuyClick(name:string, email:string): boolean {
+    function handleBuyClick(name: string, email: string): boolean {
         if (selectedProduct) {
             console.log("Buying product: " + selectedProduct.name + " name:" + name + " email:" + email);
             PurchaseRepository.createNewInvoice(name, email, selectedProduct.productId, selectedProduct.price)
@@ -47,7 +47,7 @@ export default function Dashboard({onMenuTap}: DashboardProp) {
     return (
         <div className="dashboard-root">
 
-            { selectedProduct && (
+            {selectedProduct && (
                 <BuyProductModal
                     ref={buyProductModalRef}
                     productModel={selectedProduct}
@@ -57,14 +57,14 @@ export default function Dashboard({onMenuTap}: DashboardProp) {
             )}
 
             <section id="header">
-                <Header onMenuTap={onMenuTap}/>
+                <Header onMenuTap={onMenuTap} />
             </section>
 
             <section id="caousel">
                 <Carousel onBuyTap={(product) => showProductModal(product)} isCarouselRunning={selectedProduct == null} />
             </section>
 
-            <ProductList isTrendingProduct={false} onBuyTap={(product) => showProductModal(product)}/>
+            <ProductList isTrendingProduct={false} onBuyTap={(product) => showProductModal(product)} />
 
             <Sponsors />
 

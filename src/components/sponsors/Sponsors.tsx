@@ -1,7 +1,7 @@
-import SponsorsItem from "./SponsorsItem"
-import { SponsorsRepository } from "../../data/SponsorsRepository"
-import { useState, useEffect } from "react"
-import { SponsorsModel } from "../../data/SponsorsModel"
+import { useState, useEffect } from "react";
+import SponsorsItem from "./SponsorsItem";
+import { SponsorsRepository } from "../../data/SponsorsRepository";
+import { SponsorsModel } from "../../data/SponsorsModel";
 
 
 export default function Sponsors() {

@@ -1,4 +1,4 @@
-import { SponsorsModel } from "../../data/SponsorsModel"
+import { SponsorsModel } from "../../data/SponsorsModel";
 
 type SponsorsItemProp = {
     sponsor: SponsorsModel
