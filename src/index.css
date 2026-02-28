@@ -25,7 +25,7 @@
 /* Product styles */
 @layer components {
   .product-root {
-    @apply flex flex-col bg-gray-100 m-2 md:mx-4 sm:mx-3 mx-2 rounded-md md:space-y-2 sm:space-y-1.5 space-y-1 items-center justify-center shadow;
+    @apply flex flex-col bg-gray-100 m-2 md:mx-4 sm:mx-3 mx-2 rounded-md items-center justify-center shadow overflow-hidden;
   }
 
   .product-trending {
@@ -45,15 +45,15 @@
   }
 
   .product-buy-btn {
-    @apply bg-white md:text-sm md:px-2 md:py-1 sm:text-xs sm:px-1 sm:py-0.5 text-xs px-1 py-0.5 text-blue-600 border border-blue-600 rounded hover:bg-blue-600 hover:text-white transition-colors duration-300 w-max cursor-pointer;
+    @apply bg-white md:text-sm md:px-2 md:py-1 sm:text-xs sm:px-1 sm:py-0.5 text-xs px-1 py-0.5 text-blue-600 border border-blue-600 rounded hover:bg-blue-600 hover:text-white transition-colors duration-300 w-max cursor-pointer md:mt-3 sm:mt-2 mt-1.5;
   }
 
   .product-name {
-    @apply md:text-base md:px-2 md:py-1 sm:text-sm sm:px-1 sm:py-0.5 text-sm px-1 py-0.5;
+    @apply w-full text-center px-1 md:text-base sm:text-sm text-xs leading-tight line-clamp-2 break-words md:mt-3 sm:mt-2 mt-1.5;
   }
 
   .product-price {
-    @apply md:text-base md:px-2 md:py-1 sm:text-sm sm:px-1 sm:py-0.5 text-sm px-1 py-0.5;
+    @apply w-full text-center px-1 md:text-base sm:text-sm text-xs font-semibold md:mt-1 mt-0.5;
   }
 }
 
@@ -410,7 +410,7 @@
 /* Trending Products */
 @layer components {
   .trendingproducts-root {
-    @apply p-6 w-fit mx-auto;
+    @apply p-6 mx-auto w-full md:w-fit sm:w-[95%];
   }
 
   .trendingproducts-card {
