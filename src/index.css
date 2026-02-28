@@ -577,3 +577,92 @@
     @apply bg-gray-200 px-6 py-2 rounded-xl cursor-pointer;
   }
 }
+
+/* Simple Header */
+@layer components {
+  .simpleheader-root {
+    @apply flex items-center justify-between px-6 py-4 shadow-sm bg-white;
+  }
+
+  .simpleheader-home-icon {
+    @apply text-3xl text-gray-800 cursor-pointer hover:scale-110 transition-transform select-none;
+  }
+}
+
+/* Support */
+@layer components {
+  .support-root {
+    @apply flex flex-col h-screen overflow-hidden bg-gray-50;
+  }
+
+  .support-content {
+    @apply flex flex-col items-center justify-center flex-1 p-4;
+  }
+
+  .support-logo {
+    @apply w-24 h-24 mb-6;
+  }
+
+  .support-title {
+    @apply text-4xl font-extrabold text-blue-900 mb-2 text-center;
+  }
+
+  .support-subtitle {
+    @apply text-gray-500 text-lg mb-4 text-center max-w-md;
+  }
+
+  .support-card {
+    @apply bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center max-w-md w-full mb-8 text-center space-y-4;
+  }
+
+  .support-card-title {
+    @apply text-gray-700 font-medium;
+  }
+
+  .support-card-links {
+    @apply flex flex-col space-y-2 w-full;
+  }
+
+  .support-link-btn {
+    @apply flex items-center justify-center space-x-2 text-blue-600 hover:text-blue-800 hover:bg-blue-50 py-2 rounded-lg transition-colors cursor-pointer;
+  }
+
+  .support-link-icon {
+    @apply text-xl;
+  }
+
+  .support-link-text {
+    @apply font-semibold;
+  }
+}
+
+/* Profile */
+@layer components {
+  .profile-root {
+    @apply flex flex-col h-screen overflow-hidden bg-gray-50;
+  }
+
+  .profile-content {
+    @apply flex flex-col items-center justify-center flex-1 p-4;
+  }
+
+  .profile-logo-wrapper {
+    @apply opacity-50 grayscale;
+  }
+
+  .profile-logo {
+    @apply w-24 h-24 mb-6;
+  }
+
+  .profile-title {
+    @apply text-4xl font-extrabold text-blue-900 mb-2 text-center;
+  }
+
+  .profile-subtitle {
+    @apply text-gray-500 text-lg mb-8 text-center max-w-md;
+  }
+
+  .profile-badge {
+    @apply px-6 py-2 bg-blue-100 text-blue-700 rounded-full font-semibold border border-blue-200 mt-4;
+  }
+}
